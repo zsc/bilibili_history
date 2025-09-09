@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="./">
+    <title>B站技术发展史：从弹幕网站到综合性内容平台</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/highlight.css">
+    <script src="assets/script.js" defer></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$']],
+                displayMath: [['$$', '$$']],
+                processEscapes: false,
+                packages: {'[+]': ['noerrors', 'ams']}
+            },
+            options: {
+                ignoreHtmlClass: 'tex2jax_ignore',
+                processHtmlClass: 'tex2jax_process'
+            },
+            loader: {
+                load: ['[tex]/noerrors', '[tex]/ams']
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="container">
+        <nav id="sidebar" class="sidebar">
+            <div class="sidebar-header">
+                <h3>目录</h3>
+                <button id="sidebar-toggle" class="sidebar-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            <div class="sidebar-search">
+                <input type="text" id="sidebar-search-input" placeholder="搜索..." autocomplete="off">
+            </div>
+            <div id="tree-container">
+                <nav class="tree-nav" role="tree">
+                    <div class="tree-item active" >
+                        <a href="index.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">B站技术发展史：从弹幕网站到综合性内容平台</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter1.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第1章：创世纪（2009-2011）</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter2.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第2章：成长期（2012-2014）</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter3.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第3章：移动转型（2015-2017）</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter4.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第4章：规模化扩张（2018-2020）</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter5.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第5章：技术深耕（2021-2023）</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter6.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第6章：AI时代（2024-至今）</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter7.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第7章：弹幕系统演进史</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter8.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第8章：视频技术架构</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter9.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第9章：推荐系统与算法</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter10.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第10章：直播技术体系</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter11.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第11章：基础设施建设</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter12.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第12章：技术组织与文化</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="CLAUDE.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">Untitled</span>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </nav>
+        
+        <main class="content">
+            <article>
+                <h1 id="b">B站技术发展史：从弹幕网站到综合性内容平台</h1>
+<blockquote>
+<p>一个二次元弹幕网站如何成长为中国最大的年轻人文化社区</p>
+</blockquote>
+<h2 id="_1">目录</h2>
+<h3 id="_2">第一部分：编年史</h3>
+<h4 id="12009-2011"><a href="chapter1.html">第1章：创世纪（2009-2011）</a></h4>
+<ul>
+<li>徐逸（⑨bishi）的个人网站时代</li>
+<li>Mikufans到Bilibili的转变</li>
+<li>早期技术架构：PHP + MySQL的简单开始</li>
+<li>弹幕系统的诞生与实现</li>
+</ul>
+<h4 id="22012-2014"><a href="chapter2.html">第2章：成长期（2012-2014）</a></h4>
+<ul>
+<li>陈睿加入与商业化探索</li>
+<li>从个人网站到公司化运营</li>
+<li>技术团队初建：第一批工程师</li>
+<li>基础设施升级：CDN建设与视频转码优化</li>
+</ul>
+<h4 id="32015-2017"><a href="chapter3.html">第3章：移动转型（2015-2017）</a></h4>
+<ul>
+<li>移动端崛起：iOS/Android客户端开发</li>
+<li>直播业务上线：技术架构大改造</li>
+<li>用户爆发式增长带来的技术挑战</li>
+<li>微服务化初探</li>
+</ul>
+<h4 id="42018-2020"><a href="chapter4.html">第4章：规模化扩张（2018-2020）</a></h4>
+<ul>
+<li>纳斯达克上市（2018.3.28）</li>
+<li>技术中台建设</li>
+<li>推荐算法与AI应用</li>
+<li>多业务线并行：游戏、电商、漫画</li>
+</ul>
+<h4 id="52021-2023"><a href="chapter5.html">第5章：技术深耕（2021-2023）</a></h4>
+<ul>
+<li>云原生架构转型</li>
+<li>自研技术栈建设</li>
+<li>国际化技术挑战</li>
+<li>元宇宙与虚拟技术探索</li>
+</ul>
+<h4 id="6ai2024-"><a href="chapter6.html">第6章：AI时代（2024-至今）</a></h4>
+<ul>
+<li>大模型应用与AIGC</li>
+<li>智能推荐系统升级</li>
+<li>实时互动技术创新</li>
+<li>未来技术展望</li>
+</ul>
+<h3 id="_3">第二部分：专题深度分析</h3>
+<h4 id="7"><a href="chapter7.html">第7章：弹幕系统演进史</a></h4>
+<div class="codehilite"><pre><span></span><code>┌─────────────────────────────────────────┐
+│          弹幕系统架构演进               │
+├─────────────────────────────────────────┤
+│  2009: XML文件存储                      │
+│    ↓                                    │
+│  2012: MySQL关系型数据库                │
+│    ↓                                    │
+│  2015: Redis缓存层 + MySQL              │
+│    ↓                                    │
+│  2018: 分布式存储 + 实时计算            │
+│    ↓                                    │
+│  2023: 云原生弹幕服务                   │
+└─────────────────────────────────────────┘
+</code></pre></div>
+
+<h4 id="8"><a href="chapter8.html">第8章：视频技术架构</a></h4>
+<ul>
+<li>转码系统演进</li>
+<li>CDN网络建设</li>
+<li>P2P技术应用</li>
+<li>4K/8K超高清支持</li>
+<li>AV1编码实践</li>
+</ul>
+<h4 id="9"><a href="chapter9.html">第9章：推荐系统与算法</a></h4>
+<ul>
+<li>从编辑推荐到算法推荐</li>
+<li>个性化推荐架构</li>
+<li>深度学习应用</li>
+<li>用户画像系统</li>
+<li>AB测试平台</li>
+</ul>
+<h4 id="10"><a href="chapter10.html">第10章：直播技术体系</a></h4>
+<div class="codehilite"><pre><span></span><code>┌──────────────────────────────────────────┐
+│            直播技术架构                   │
+├──────────────────────────────────────────┤
+│  推流端：OBS/移动端 SDK                  │
+│     ↓                                    │
+│  接入层：RTMP/SRT/WebRTC                 │
+│     ↓                                    │
+│  转码集群：多码率自适应                   │
+│     ↓                                    │
+│  CDN分发：全球节点部署                   │
+│     ↓                                    │
+│  播放端：低延迟优化                      │
+└──────────────────────────────────────────┘
+</code></pre></div>
+
+<h4 id="11"><a href="chapter11.html">第11章：基础设施建设</a></h4>
+<ul>
+<li>数据中心演进</li>
+<li>容器化与Kubernetes</li>
+<li>服务网格（Service Mesh）</li>
+<li>监控与可观测性</li>
+<li>混合云架构</li>
+</ul>
+<h4 id="12"><a href="chapter12.html">第12章：技术组织与文化</a></h4>
+<ul>
+<li>技术团队成长历程</li>
+<li>工程师文化建设</li>
+<li>开源贡献</li>
+<li>技术品牌建设</li>
+<li>人才培养体系</li>
+</ul>
+<h2 id="_4">关键人物</h2>
+<h3 id="_5">创始人与早期领导者</h3>
+<p>| 姓名 | 职位 | 关键贡献 | 任期 |</p>
+<table>
+<thead>
+<tr>
+<th>姓名</th>
+<th>职位</th>
+<th>关键贡献</th>
+<th>任期</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>徐逸（⑨bishi）</td>
+<td>创始人</td>
+<td>创建Bilibili，奠定弹幕文化基础</td>
+<td>2009-至今</td>
+</tr>
+<tr>
+<td>陈睿</td>
+<td>董事长兼CEO</td>
+<td>商业化转型，技术团队规模化</td>
+<td>2014-至今</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_6">技术领导者</h3>
+<p>| 姓名 | 职位 | 关键贡献 | 任期 |</p>
+<table>
+<thead>
+<tr>
+<th>姓名</th>
+<th>职位</th>
+<th>关键贡献</th>
+<th>任期</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>毛剑</td>
+<td>CTO</td>
+<td>技术架构现代化，微服务转型</td>
+<td>2016-2020</td>
+</tr>
+<tr>
+<td>刘炀</td>
+<td>技术副总裁</td>
+<td>基础设施建设，云原生转型</td>
+<td>2018-至今</td>
+</tr>
+<tr>
+<td>郑立鹏</td>
+<td>首席架构师</td>
+<td>推荐系统，大数据平台</td>
+<td>2017-至今</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_7">技术里程碑</h2>
+<div class="codehilite"><pre><span></span><code><span class="mf">2009</span><span class="w"> </span><span class="err">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span><span class="w"> </span><span class="mf">2024</span>
+<span class="w"> </span><span class="err">│</span><span class="w">                                                                      </span><span class="err">│</span>
+<span class="w"> </span><span class="err">├─</span><span class="w"> </span><span class="mf">2009.06</span><span class="p">:</span><span class="w"> </span><span class="n">网站上线</span><span class="err">，</span><span class="n">首个弹幕系统</span><span class="w">                                     </span><span class="err">│</span>
+<span class="w"> </span><span class="err">├─</span><span class="w"> </span><span class="mf">2012.03</span><span class="p">:</span><span class="w"> </span><span class="n">移动端APP发布</span><span class="w">                                             </span><span class="err">│</span>
+<span class="w"> </span><span class="err">├─</span><span class="w"> </span><span class="mf">2014.10</span><span class="p">:</span><span class="w"> </span><span class="n">直播业务Beta测试</span><span class="w">                                          </span><span class="err">│</span>
+<span class="w"> </span><span class="err">├─</span><span class="w"> </span><span class="mf">2016.05</span><span class="p">:</span><span class="w"> </span><span class="n">微服务架构改造启动</span><span class="w">                                        </span><span class="err">│</span>
+<span class="w"> </span><span class="err">├─</span><span class="w"> </span><span class="mf">2018.03</span><span class="p">:</span><span class="w"> </span><span class="n">纳斯达克上市</span><span class="err">，</span><span class="n">技术投入翻倍</span><span class="w">                                </span><span class="err">│</span>
+<span class="w"> </span><span class="err">├─</span><span class="w"> </span><span class="mf">2019.11</span><span class="p">:</span><span class="w"> </span><span class="n">自研CDN系统上线</span><span class="w">                                          </span><span class="err">│</span>
+<span class="w"> </span><span class="err">├─</span><span class="w"> </span><span class="mf">2020.08</span><span class="p">:</span><span class="w"> </span><span class="n">云原生平台1</span><span class="mf">.0</span><span class="n">发布</span><span class="w">                                        </span><span class="err">│</span>
+<span class="w"> </span><span class="err">├─</span><span class="w"> </span><span class="mf">2021.12</span><span class="p">:</span><span class="w"> </span><span class="n">AI推荐系统全面升级</span><span class="w">                                       </span><span class="err">│</span>
+<span class="w"> </span><span class="err">├─</span><span class="w"> </span><span class="mf">2023.04</span><span class="p">:</span><span class="w"> </span><span class="n">大模型应用落地</span><span class="w">                                           </span><span class="err">│</span>
+<span class="w"> </span><span class="err">└─</span><span class="w"> </span><span class="mf">2024.01</span><span class="p">:</span><span class="w"> </span><span class="n">自研数据库投入生产</span><span class="w">                                       </span><span class="err">│</span>
+</code></pre></div>
+
+<h2 id="2024">技术数据概览（截至2024年）</h2>
+<p>| 指标 | 数值 | 说明 |</p>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>数值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>日活跃用户</td>
+<td>1亿+</td>
+<td>每日访问用户数</td>
+</tr>
+<tr>
+<td>月活跃UP主</td>
+<td>200万+</td>
+<td>内容创作者数量</td>
+</tr>
+<tr>
+<td>日均视频播放量</td>
+<td>30亿+</td>
+<td>包含长视频与短视频</td>
+</tr>
+<tr>
+<td>弹幕日发送量</td>
+<td>1亿+</td>
+<td>实时弹幕消息</td>
+</tr>
+<tr>
+<td>技术团队规模</td>
+<td>3000+</td>
+<td>工程师与技术人员</td>
+</tr>
+<tr>
+<td>服务器数量</td>
+<td>10万+</td>
+<td>自建+云服务</td>
+</tr>
+<tr>
+<td>带宽峰值</td>
+<td>50Tbps+</td>
+<td>CDN总带宽</td>
+</tr>
+<tr>
+<td>代码仓库数</td>
+<td>5000+</td>
+<td>微服务与组件</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_8">技术栈演进</h2>
+<h3 id="2009-2011">2009-2011：单体架构时代</h3>
+<div class="codehilite"><pre><span></span><code>┌─────────────────────┐
+│   Nginx (负载均衡)   │
+└──────────┬──────────┘
+           │
+┌──────────┴──────────┐
+│   PHP 5.x (应用层)   │
+└──────────┬──────────┘
+           │
+┌──────────┴──────────┐
+│   MySQL (数据库)     │
+└─────────────────────┘
+</code></pre></div>
+
+<h3 id="2024_1">2024：现代化微服务架构</h3>
+<div class="codehilite"><pre><span></span><code><span class="err">┌────────────────────────────────────────────┐</span>
+<span class="err">│</span><span class="w">            </span><span class="n">API</span><span class="w"> </span><span class="n">Gateway</span><span class="w"> </span><span class="p">(</span><span class="n">Kong</span><span class="o">/</span><span class="n">自研</span><span class="p">)</span><span class="w">          </span><span class="err">│</span>
+<span class="err">└────────────────────────────────────────────┘</span>
+<span class="w">                      </span><span class="err">│</span>
+<span class="w">    </span><span class="err">┌─────────────────┼─────────────────┐</span>
+<span class="w">    </span><span class="err">│</span><span class="w">                 </span><span class="err">│</span><span class="w">                 </span><span class="err">│</span>
+<span class="err">┌───┴────┐</span><span class="w">      </span><span class="err">┌────┴────┐</span><span class="w">      </span><span class="err">┌────┴────┐</span>
+<span class="err">│</span><span class="w"> </span><span class="k">Go</span><span class="w">     </span><span class="err">│</span><span class="w">      </span><span class="err">│</span><span class="w"> </span><span class="n">Java</span><span class="w">    </span><span class="err">│</span><span class="w">      </span><span class="err">│</span><span class="w"> </span><span class="n">Python</span><span class="w">  </span><span class="err">│</span>
+<span class="err">│</span><span class="w"> </span><span class="n">服务</span><span class="w">   </span><span class="err">│</span><span class="w">      </span><span class="err">│</span><span class="w"> </span><span class="n">服务</span><span class="w">    </span><span class="err">│</span><span class="w">      </span><span class="err">│</span><span class="w"> </span><span class="n">AI服务</span><span class="w">  </span><span class="err">│</span>
+<span class="err">└───┬────┘</span><span class="w">      </span><span class="err">└────┬────┘</span><span class="w">      </span><span class="err">└────┬────┘</span>
+<span class="w">    </span><span class="err">│</span><span class="w">                 </span><span class="err">│</span><span class="w">                 </span><span class="err">│</span>
+<span class="w">    </span><span class="err">└─────────────────┼─────────────────┘</span>
+<span class="w">                      </span><span class="err">│</span>
+<span class="err">┌────────────────────────────────────────────┐</span>
+<span class="err">│</span><span class="w">     </span><span class="n">Service</span><span class="w"> </span><span class="n">Mesh</span><span class="w"> </span><span class="p">(</span><span class="n">Istio</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">K8s</span><span class="w">             </span><span class="err">│</span>
+<span class="err">└────────────────────────────────────────────┘</span>
+<span class="w">                      </span><span class="err">│</span>
+<span class="err">┌────────────────────────────────────────────┐</span>
+<span class="err">│</span><span class="w">   </span><span class="n">分布式存储</span><span class="err">：</span><span class="n">TiDB</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">HBase</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">ElasticSearch</span><span class="w"> </span><span class="err">│</span>
+<span class="err">└────────────────────────────────────────────┘</span>
+</code></pre></div>
+
+<h2 id="_9">投资与收购</h2>
+<p>| 年份 | 事件 | 金额 | 影响 |</p>
+<table>
+<thead>
+<tr>
+<th>年份</th>
+<th>事件</th>
+<th>金额</th>
+<th>影响</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2011</td>
+<td>天使轮融资</td>
+<td>¥200万</td>
+<td>团队初建</td>
+</tr>
+<tr>
+<td>2013</td>
+<td>A轮融资（IDG资本）</td>
+<td>¥4000万</td>
+<td>技术团队扩张</td>
+</tr>
+<tr>
+<td>2014</td>
+<td>B轮融资</td>
+<td>¥1.8亿</td>
+<td>基础设施投入</td>
+</tr>
+<tr>
+<td>2015</td>
+<td>C轮融资（腾讯参投）</td>
+<td>¥5亿+</td>
+<td>移动端发力</td>
+</tr>
+<tr>
+<td>2018</td>
+<td>纳斯达克IPO</td>
+<td>¥30亿</td>
+<td>技术研发加速</td>
+</tr>
+<tr>
+<td>2020</td>
+<td>定向增发</td>
+<td>¥80亿</td>
+<td>内容生态建设</td>
+</tr>
+<tr>
+<td>2021</td>
+<td>香港二次上市</td>
+<td>¥200亿</td>
+<td>国际化布局</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_10">开源贡献</h2>
+<p>B站在开源社区的主要项目：</p>
+<ul>
+<li><strong>Kratos</strong>: Go微服务框架（GitHub Stars: 20k+）</li>
+<li><strong>Overlord</strong>: 缓存&amp;代理组件</li>
+<li><strong>Discovery</strong>: 服务发现中间件</li>
+<li><strong>BJLiveUI</strong>: 直播UI组件库</li>
+<li><strong>DanmakuFlameMaster</strong>: Android弹幕引擎</li>
+</ul>
+<h2 id="_11">技术挑战与解决方案</h2>
+<h3 id="_12">挑战一：弹幕性能优化</h3>
+<ul>
+<li><strong>问题</strong>：百万级弹幕实时渲染</li>
+<li><strong>方案</strong>：WebGL加速、分层渲染、智能降级</li>
+</ul>
+<h3 id="_13">挑战二：视频存储成本</h3>
+<ul>
+<li><strong>问题</strong>：PB级视频存储</li>
+<li><strong>方案</strong>：冷热分离、P2P分发、智能转码</li>
+</ul>
+<h3 id="_14">挑战三：推荐系统冷启动</h3>
+<ul>
+<li><strong>问题</strong>：新用户个性化推荐</li>
+<li><strong>方案</strong>：多模态特征、迁移学习、探索与利用平衡</li>
+</ul>
+<h3 id="_15">挑战四：直播延迟优化</h3>
+<ul>
+<li><strong>问题</strong>：跨地域直播延迟</li>
+<li><strong>方案</strong>：边缘计算、私有协议、智能调度</li>
+</ul>
+<h2 id="_16">未来展望</h2>
+<ul>
+<li><strong>AI原生化</strong>：大模型深度集成，AIGC内容生产</li>
+<li><strong>全球化技术</strong>：多地域部署，跨境加速</li>
+<li><strong>元宇宙探索</strong>：虚拟直播，XR技术</li>
+<li><strong>Web3.0准备</strong>：区块链技术储备，去中心化探索</li>
+</ul>
+<hr />
+<p><em>本文档持续更新中，记录B站技术发展的每一个重要时刻</em></p>
+<p><strong>最后更新时间</strong>: 2024年12月</p>
+            </article>
+            
+            <nav class="page-nav"><a href="chapter1.html" class="nav-link next">第1章：创世纪（2009-2011） →</a></nav>
+        </main>
+    </div>
+</body>
+</html>

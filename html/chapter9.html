@@ -1,0 +1,2075 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="./">
+    <title>第9章：推荐系统与算法</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/highlight.css">
+    <script src="assets/script.js" defer></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$']],
+                displayMath: [['$$', '$$']],
+                processEscapes: false,
+                packages: {'[+]': ['noerrors', 'ams']}
+            },
+            options: {
+                ignoreHtmlClass: 'tex2jax_ignore',
+                processHtmlClass: 'tex2jax_process'
+            },
+            loader: {
+                load: ['[tex]/noerrors', '[tex]/ams']
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="container">
+        <nav id="sidebar" class="sidebar">
+            <div class="sidebar-header">
+                <h3>目录</h3>
+                <button id="sidebar-toggle" class="sidebar-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            <div class="sidebar-search">
+                <input type="text" id="sidebar-search-input" placeholder="搜索..." autocomplete="off">
+            </div>
+            <div id="tree-container">
+                <nav class="tree-nav" role="tree">
+                    <div class="tree-item " >
+                        <a href="index.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">B站技术发展史：从弹幕网站到综合性内容平台</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter1.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第1章：创世纪（2009-2011）</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter2.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第2章：成长期（2012-2014）</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter3.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第3章：移动转型（2015-2017）</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter4.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第4章：规模化扩张（2018-2020）</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter5.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第5章：技术深耕（2021-2023）</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter6.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第6章：AI时代（2024-至今）</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter7.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第7章：弹幕系统演进史</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter8.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第8章：视频技术架构</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item active" >
+                        <a href="chapter9.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第9章：推荐系统与算法</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter10.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第10章：直播技术体系</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter11.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第11章：基础设施建设</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter12.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第12章：技术组织与文化</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="CLAUDE.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">Untitled</span>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </nav>
+        
+        <main class="content">
+            <article>
+                <h1 id="9">第9章：推荐系统与算法</h1>
+<blockquote>
+<p>从人工编辑到AI驱动，B站推荐系统的技术演进之路</p>
+</blockquote>
+<h2 id="_1">章节概览</h2>
+<p>B站的推荐系统经历了从纯人工运营到智能算法的完整进化历程。作为一个以用户生成内容（UGC）为核心的平台，推荐系统不仅决定了内容分发效率，更直接影响着创作者生态和用户体验。本章将深入剖析B站推荐系统的技术架构、算法演进和工程实践。</p>
+<h2 id="_2">目录</h2>
+<ol>
+<li><a href="#从编辑推荐到算法推荐">从编辑推荐到算法推荐</a></li>
+<li><a href="#个性化推荐架构">个性化推荐架构</a></li>
+<li><a href="#深度学习应用">深度学习应用</a></li>
+<li><a href="#用户画像系统">用户画像系统</a></li>
+<li><a href="#ab测试平台">AB测试平台</a></li>
+</ol>
+<hr />
+<h2 id="_3">从编辑推荐到算法推荐</h2>
+<h3 id="11-2009-2013">1.1 人工编辑时代（2009-2013）</h3>
+<h4 id="_4">运营机制</h4>
+<div class="codehilite"><pre><span></span><code>┌──────────────────────────────────────────┐
+│         早期推荐流程（2009-2013）         │
+├──────────────────────────────────────────┤
+│                                          │
+│  UP主上传 → 审核员审核 → 编辑精选       │
+│     ↓           ↓            ↓          │
+│  普通区域    通过/拒绝    首页推荐      │
+│                                          │
+│  推荐位：                                │
+│  - 首页Banner（3-5个）                   │
+│  - 分区推荐（每区5-10个）                │
+│  - 每日精选（10-20个）                   │
+│                                          │
+└──────────────────────────────────────────┘
+</code></pre></div>
+
+<h4 id="_5">编辑团队构成</h4>
+<p>| 时期 | 团队规模 | 日处理视频量 | 推荐准确率 |</p>
+<table>
+<thead>
+<tr>
+<th>时期</th>
+<th>团队规模</th>
+<th>日处理视频量</th>
+<th>推荐准确率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2009</td>
+<td>2-3人</td>
+<td>50-100</td>
+<td>依赖个人品味</td>
+</tr>
+<tr>
+<td>2010</td>
+<td>5-8人</td>
+<td>200-300</td>
+<td>~40%</td>
+</tr>
+<tr>
+<td>2011</td>
+<td>10-15人</td>
+<td>500-800</td>
+<td>~45%</td>
+</tr>
+<tr>
+<td>2012</td>
+<td>20-30人</td>
+<td>1000-1500</td>
+<td>~50%</td>
+</tr>
+<tr>
+<td>2013</td>
+<td>30-50人</td>
+<td>2000-3000</td>
+<td>~55%</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_6">问题与挑战</h4>
+<ul>
+<li><strong>扩展性差</strong>：人工成本随内容量线性增长</li>
+<li><strong>时效性低</strong>：热点内容发现延迟（平均6-12小时）</li>
+<li><strong>个性化缺失</strong>：千人一面的推荐结果</li>
+<li><strong>主观偏见</strong>：编辑个人喜好影响推荐公平性</li>
+</ul>
+<h3 id="12-2014-2016">1.2 算法探索期（2014-2016）</h3>
+<h4 id="_7">协同过滤初探</h4>
+<div class="codehilite"><pre><span></span><code><span class="c1"># 早期协同过滤伪代码示例</span>
+<span class="k">class</span> <span class="nc">SimpleCollaborativeFilter</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">user_item_matrix</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># 用户-视频交互矩阵</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">similarity_cache</span> <span class="o">=</span> <span class="p">{}</span>   <span class="c1"># 相似度缓存</span>
+
+    <span class="k">def</span> <span class="nf">calculate_similarity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user1</span><span class="p">,</span> <span class="n">user2</span><span class="p">):</span>
+        <span class="c1"># 基于余弦相似度</span>
+        <span class="n">common_items</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">user_item_matrix</span><span class="p">[</span><span class="n">user1</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">&amp;</span> \
+                      <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">user_item_matrix</span><span class="p">[</span><span class="n">user2</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">common_items</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+
+        <span class="c1"># 简化的余弦相似度计算</span>
+        <span class="n">numerator</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">user_item_matrix</span><span class="p">[</span><span class="n">user1</span><span class="p">][</span><span class="n">item</span><span class="p">]</span> <span class="o">*</span> 
+                        <span class="bp">self</span><span class="o">.</span><span class="n">user_item_matrix</span><span class="p">[</span><span class="n">user2</span><span class="p">][</span><span class="n">item</span><span class="p">]</span> 
+                        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">common_items</span><span class="p">])</span>
+        <span class="n">denominator</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="nb">sum</span><span class="p">([</span><span class="n">v</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_item_matrix</span><span class="p">[</span><span class="n">user1</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">()]))</span> <span class="o">*</span> \
+                     <span class="n">sqrt</span><span class="p">(</span><span class="nb">sum</span><span class="p">([</span><span class="n">v</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_item_matrix</span><span class="p">[</span><span class="n">user2</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">()]))</span>
+
+        <span class="k">return</span> <span class="n">numerator</span> <span class="o">/</span> <span class="n">denominator</span> <span class="k">if</span> <span class="n">denominator</span> <span class="o">!=</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span>
+</code></pre></div>
+
+<h4 id="_8">混合推荐策略</h4>
+<div class="codehilite"><pre><span></span><code>┌─────────────────────────────────────────────┐
+│          混合推荐架构（2014-2016）          │
+├─────────────────────────────────────────────┤
+│                                             │
+│   热门推荐（30%）                           │
+│      ├── 播放量排序                        │
+│      ├── 弹幕数排序                        │
+│      └── 硬币数排序                        │
+│                                             │
+│   协同过滤（40%）                           │
+│      ├── User-Based CF                     │
+│      ├── Item-Based CF                     │
+│      └── Matrix Factorization              │
+│                                             │
+│   编辑推荐（20%）                           │
+│      └── 人工精选内容                      │
+│                                             │
+│   随机探索（10%）                           │
+│      └── 新内容曝光                        │
+│                                             │
+└─────────────────────────────────────────────┘
+</code></pre></div>
+
+<h3 id="13-2017-2019">1.3 机器学习时代（2017-2019）</h3>
+<h4 id="_9">特征工程体系</h4>
+<p>| 特征类别 | 具体特征 | 维度 | 重要性 |</p>
+<table>
+<thead>
+<tr>
+<th>特征类别</th>
+<th>具体特征</th>
+<th>维度</th>
+<th>重要性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户特征</td>
+<td>年龄、性别、地域、设备</td>
+<td>~50</td>
+<td>高</td>
+</tr>
+<tr>
+<td>视频特征</td>
+<td>标题、标签、时长、分区</td>
+<td>~200</td>
+<td>高</td>
+</tr>
+<tr>
+<td>统计特征</td>
+<td>CTR、完播率、互动率</td>
+<td>~100</td>
+<td>极高</td>
+</tr>
+<tr>
+<td>时间特征</td>
+<td>发布时间、观看时间、节假日</td>
+<td>~30</td>
+<td>中</td>
+</tr>
+<tr>
+<td>创作者特征</td>
+<td>粉丝数、更新频率、内容质量</td>
+<td>~50</td>
+<td>高</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_10">排序模型演进</h4>
+<div class="codehilite"><pre><span></span><code><span class="mi">2017</span><span class="o">:</span><span class="w"> </span><span class="n">Logistic</span><span class="w"> </span><span class="n">Regression</span>
+<span class="w">     </span><span class="err">↓</span>
+<span class="mi">2018</span><span class="o">:</span><span class="w"> </span><span class="n">GBDT</span><span class="w"> </span><span class="o">(</span><span class="n">Gradient</span><span class="w"> </span><span class="n">Boosting</span><span class="w"> </span><span class="n">Decision</span><span class="w"> </span><span class="n">Tree</span><span class="o">)</span>
+<span class="w">     </span><span class="err">↓</span>
+<span class="mi">2019</span><span class="o">:</span><span class="w"> </span><span class="n">Wide</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">Deep</span><span class="w"> </span><span class="n">Model</span>
+<span class="w">     </span><span class="err">↓</span>
+<span class="w">     </span><span class="err">特征交叉</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="err">深度学习</span>
+</code></pre></div>
+
+<h3 id="14-2020-">1.4 深度学习革命（2020-至今）</h3>
+<h4 id="_11">模型架构升级</h4>
+<div class="codehilite"><pre><span></span><code>┌──────────────────────────────────────────────┐
+│         深度推荐模型架构（2020+）            │
+├──────────────────────────────────────────────┤
+│                                              │
+│  召回层（Recall）                            │
+│   ├── 协同过滤召回                          │
+│   ├── 内容召回（BERT）                      │
+│   ├── 图神经网络召回                        │
+│   └── 实时热点召回                          │
+│                    ↓                         │
+│  粗排层（Pre-ranking）                       │
+│   └── 轻量级DNN（~1000候选）                │
+│                    ↓                         │
+│  精排层（Ranking）                           │
+│   └── 复杂DNN模型（~100候选）               │
+│                    ↓                         │
+│  重排层（Re-ranking）                        │
+│   ├── 多样性优化                            │
+│   ├── 业务规则                              │
+│   └── 用户体验优化                          │
+│                                              │
+└──────────────────────────────────────────────┘
+</code></pre></div>
+
+<hr />
+<h2 id="_12">用户画像系统</h2>
+<h3 id="41">4.1 画像体系架构</h3>
+<h4 id="_13">多层次用户画像</h4>
+<div class="codehilite"><pre><span></span><code>┌──────────────────────────────────────────────┐
+│             B站用户画像体系                  │
+├──────────────────────────────────────────────┤
+│                                              │
+│  基础属性层                                  │
+│   ├── 人口统计：年龄、性别、地域            │
+│   ├── 设备信息：机型、系统、网络            │
+│   └── 账号信息：等级、大会员、注册时间      │
+│                                              │
+│  行为特征层                                  │
+│   ├── 观看行为：时长、频次、完播率          │
+│   ├── 互动行为：点赞、投币、收藏、弹幕      │
+│   ├── 社交行为：关注、私信、动态            │
+│   └── 创作行为：投稿、直播、专栏            │
+│                                              │
+│  兴趣标签层                                  │
+│   ├── 内容偏好：分区、标签、UP主            │
+│   ├── 时间偏好：活跃时段、观看节奏          │
+│   └── 消费偏好：付费意愿、打赏习惯          │
+│                                              │
+│  价值分层                                    │
+│   ├── 用户价值：LTV、活跃度、留存          │
+│   ├── 内容价值：内容消费量、质量偏好        │
+│   └── 社区价值：UGC贡献、社交影响力         │
+│                                              │
+└──────────────────────────────────────────────┘
+</code></pre></div>
+
+<h3 id="42">4.2 标签体系建设</h3>
+<h4 id="_14">标签分类架构</h4>
+<p>| 标签类型 | 数量级 | 更新频率 | 应用场景 |</p>
+<table>
+<thead>
+<tr>
+<th>标签类型</th>
+<th>数量级</th>
+<th>更新频率</th>
+<th>应用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>基础标签</td>
+<td>100+</td>
+<td>每天</td>
+<td>用户分群</td>
+</tr>
+<tr>
+<td>兴趣标签</td>
+<td>5000+</td>
+<td>实时</td>
+<td>内容推荐</td>
+</tr>
+<tr>
+<td>行为标签</td>
+<td>1000+</td>
+<td>每小时</td>
+<td>行为预测</td>
+</tr>
+<tr>
+<td>预测标签</td>
+<td>500+</td>
+<td>每天</td>
+<td>流失预警</td>
+</tr>
+<tr>
+<td>圈层标签</td>
+<td>200+</td>
+<td>每周</td>
+<td>社群运营</td>
+</tr>
+</tbody>
+</table>
+<h4 id="pipeline">标签生成Pipeline</h4>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">TagGenerationPipeline</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;用户标签生成流水线&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rule_engine</span> <span class="o">=</span> <span class="n">RuleEngine</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ml_models</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tag_storage</span> <span class="o">=</span> <span class="n">TagStorage</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">generate_interest_tags</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;生成兴趣标签&quot;&quot;&quot;</span>
+        <span class="c1"># 获取用户行为序列</span>
+        <span class="n">behaviors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_user_behaviors</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">days</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+
+        <span class="c1"># 内容标签聚合</span>
+        <span class="n">content_tags</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">behavior</span> <span class="ow">in</span> <span class="n">behaviors</span><span class="p">:</span>
+            <span class="n">video_tags</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_video_tags</span><span class="p">(</span><span class="n">behavior</span><span class="o">.</span><span class="n">video_id</span><span class="p">)</span>
+            <span class="n">weight</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calculate_weight</span><span class="p">(</span><span class="n">behavior</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">video_tags</span><span class="p">:</span>
+                <span class="n">content_tags</span><span class="p">[</span><span class="n">tag</span><span class="p">]</span> <span class="o">+=</span> <span class="n">weight</span>
+
+        <span class="c1"># TF-IDF标准化</span>
+        <span class="n">user_tags</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tfidf_normalize</span><span class="p">(</span><span class="n">content_tags</span><span class="p">)</span>
+
+        <span class="c1"># 标签衰减（时间衰减因子）</span>
+        <span class="n">decayed_tags</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_time_decay</span><span class="p">(</span><span class="n">user_tags</span><span class="p">)</span>
+
+        <span class="c1"># 阈值过滤</span>
+        <span class="n">final_tags</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">tag</span><span class="p">:</span> <span class="n">score</span> 
+            <span class="k">for</span> <span class="n">tag</span><span class="p">,</span> <span class="n">score</span> <span class="ow">in</span> <span class="n">decayed_tags</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> 
+            <span class="k">if</span> <span class="n">score</span> <span class="o">&gt;</span> <span class="mf">0.3</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="n">final_tags</span>
+
+    <span class="k">def</span> <span class="nf">calculate_weight</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">behavior</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;计算行为权重&quot;&quot;&quot;</span>
+        <span class="n">weights</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;view&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+            <span class="s1">&#39;like&#39;</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">,</span>
+            <span class="s1">&#39;coin&#39;</span><span class="p">:</span> <span class="mf">3.0</span><span class="p">,</span>
+            <span class="s1">&#39;favorite&#39;</span><span class="p">:</span> <span class="mf">3.0</span><span class="p">,</span>
+            <span class="s1">&#39;share&#39;</span><span class="p">:</span> <span class="mf">4.0</span><span class="p">,</span>
+            <span class="s1">&#39;comment&#39;</span><span class="p">:</span> <span class="mf">2.5</span>
+        <span class="p">}</span>
+
+        <span class="c1"># 完播率加权</span>
+        <span class="n">completion_rate</span> <span class="o">=</span> <span class="n">behavior</span><span class="o">.</span><span class="n">watch_time</span> <span class="o">/</span> <span class="n">behavior</span><span class="o">.</span><span class="n">video_duration</span>
+        <span class="n">base_weight</span> <span class="o">=</span> <span class="n">weights</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">behavior</span><span class="o">.</span><span class="n">action_type</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">base_weight</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">completion_rate</span><span class="p">)</span>
+</code></pre></div>
+
+<h3 id="43">4.3 用户分群策略</h3>
+<h4 id="_15">核心用户分群</h4>
+<div class="codehilite"><pre><span></span><code>┌──────────────────────────────────────────────┐
+│              用户分群矩阵                    │
+├──────────────────────────────────────────────┤
+│                                              │
+│  活跃度维度                                  │
+│   高 ┌────────┬────────┬────────┐          │
+│      │核心用户│活跃用户│普通用户│          │
+│   中 ├────────┼────────┼────────┤          │
+│      │忠实用户│常规用户│低频用户│          │
+│   低 ├────────┼────────┼────────┤          │
+│      │回流用户│沉睡用户│流失用户│          │
+│      └────────┴────────┴────────┘          │
+│        高      中      低                    │
+│            价值度维度                        │
+│                                              │
+│  分群策略                                    │
+│   • 核心用户：专属权益、优先体验            │
+│   • 活跃用户：内容精推、社区互动            │
+│   • 沉睡用户：召回策略、激励唤醒            │
+│   • 新用户：引导教育、兴趣探索              │
+│                                              │
+└──────────────────────────────────────────────┘
+</code></pre></div>
+
+<h4 id="rfm">RFM模型应用</h4>
+<p>| 维度 | 定义 | 计算方法 | 分层阈值 |</p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>定义</th>
+<th>计算方法</th>
+<th>分层阈值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R(Recency)</td>
+<td>最近活跃</td>
+<td>距今天数</td>
+<td>1/3/7/30天</td>
+</tr>
+<tr>
+<td>F(Frequency)</td>
+<td>活跃频次</td>
+<td>月均活跃天数</td>
+<td>1/5/15/25天</td>
+</tr>
+<tr>
+<td>M(Monetary)</td>
+<td>消费价值</td>
+<td>月均消费金额</td>
+<td>¥0/10/50/200</td>
+</tr>
+</tbody>
+</table>
+<h3 id="44">4.4 实时画像更新</h3>
+<h4 id="_16">流式计算架构</h4>
+<div class="codehilite"><pre><span></span><code>┌──────────────────────────────────────────────┐
+│           实时画像更新系统                   │
+├──────────────────────────────────────────────┤
+│                                              │
+│  数据源                                      │
+│   ├── 客户端埋点 → Kafka                    │
+│   ├── 服务端日志 → Flume                    │
+│   └── 数据库Binlog → Canal                  │
+│                ↓                             │
+│  实时计算层（Flink）                         │
+│   ├── 事件清洗：去重、过滤、标准化          │
+│   ├── 特征计算：滑动窗口聚合                │
+│   └── 标签更新：增量计算                    │
+│                ↓                             │
+│  存储层                                      │
+│   ├── Redis：热数据（1天内）                │
+│   ├── HBase：温数据（30天内）               │
+│   └── Hive：冷数据（历史归档）              │
+│                ↓                             │
+│  服务层                                      │
+│   └── 画像查询API（QPS: 100K+）             │
+│                                              │
+└──────────────────────────────────────────────┘
+</code></pre></div>
+
+<h4 id="_17">画像更新策略</h4>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">ProfileUpdateStrategy</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;画像更新策略&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">redis</span> <span class="o">=</span> <span class="n">RedisCluster</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hbase</span> <span class="o">=</span> <span class="n">HBaseClient</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">update_realtime_profile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;实时画像更新&quot;&quot;&quot;</span>
+        <span class="c1"># 短期行为序列更新</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update_behavior_sequence</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">event</span><span class="p">)</span>
+
+        <span class="c1"># 实时统计指标更新</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update_statistics</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">event</span><span class="p">)</span>
+
+        <span class="c1"># 兴趣标签增量更新</span>
+        <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">type</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;view&#39;</span><span class="p">,</span> <span class="s1">&#39;like&#39;</span><span class="p">,</span> <span class="s1">&#39;favorite&#39;</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">update_interest_tags</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">event</span><span class="p">)</span>
+
+        <span class="c1"># 触发规则引擎</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">trigger_rules</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">event</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">update_behavior_sequence</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;更新行为序列（保留最近1000条）&quot;&quot;&quot;</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;user:behavior:</span><span class="si">{</span><span class="n">user_id</span><span class="si">}</span><span class="s2">&quot;</span>
+
+        <span class="c1"># 使用Redis List存储</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">redis</span><span class="o">.</span><span class="n">lpush</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">event</span><span class="o">.</span><span class="n">to_json</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">redis</span><span class="o">.</span><span class="n">ltrim</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">999</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">redis</span><span class="o">.</span><span class="n">expire</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="mi">86400</span><span class="p">)</span>  <span class="c1"># 1天过期</span>
+
+    <span class="k">def</span> <span class="nf">merge_profiles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;多时间尺度画像融合&quot;&quot;&quot;</span>
+        <span class="c1"># 实时画像（5分钟）</span>
+        <span class="n">realtime</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_realtime_profile</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span>
+
+        <span class="c1"># 近期画像（1天）</span>
+        <span class="n">recent</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_recent_profile</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span>
+
+        <span class="c1"># 长期画像（30天）</span>
+        <span class="n">longterm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_longterm_profile</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span>
+
+        <span class="c1"># 加权融合</span>
+        <span class="n">merged</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;interests&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">merge_interests</span><span class="p">(</span>
+                <span class="n">realtime</span><span class="o">.</span><span class="n">interests</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">,</span>
+                <span class="n">recent</span><span class="o">.</span><span class="n">interests</span> <span class="o">*</span> <span class="mf">0.3</span><span class="p">,</span>
+                <span class="n">longterm</span><span class="o">.</span><span class="n">interests</span> <span class="o">*</span> <span class="mf">0.2</span>
+            <span class="p">),</span>
+            <span class="s1">&#39;behaviors&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">merge_behaviors</span><span class="p">(</span>
+                <span class="n">realtime</span><span class="p">,</span> <span class="n">recent</span><span class="p">,</span> <span class="n">longterm</span>
+            <span class="p">)</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="n">merged</span>
+</code></pre></div>
+
+<h3 id="45">4.5 画像应用场景</h3>
+<h4 id="_18">个性化推荐</h4>
+<div class="codehilite"><pre><span></span><code>用户画像 → 召回策略
+  ├── 兴趣标签 → 标签召回
+  ├── 行为序列 → 协同过滤
+  ├── 社交关系 → 社交推荐
+  └── 消费能力 → 付费内容推荐
+</code></pre></div>
+
+<h4 id="_19">精准营销</h4>
+<p>| 场景 | 画像维度 | 策略 | 效果 |</p>
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th>画像维度</th>
+<th>策略</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>拉新</td>
+<td>相似人群</td>
+<td>Look-alike</td>
+<td>CTR +30%</td>
+</tr>
+<tr>
+<td>促活</td>
+<td>沉睡用户</td>
+<td>Push召回</td>
+<td>唤醒率 15%</td>
+</tr>
+<tr>
+<td>付费转化</td>
+<td>付费意愿</td>
+<td>定向优惠</td>
+<td>转化率 +50%</td>
+</tr>
+<tr>
+<td>防流失</td>
+<td>流失预警</td>
+<td>挽留策略</td>
+<td>留存 +20%</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_20">个性化推荐架构</h2>
+<h3 id="21">2.1 系统整体架构</h3>
+<h4 id="_21">四层架构设计</h4>
+<div class="codehilite"><pre><span></span><code>┌────────────────────────────────────────────────────┐
+│              B站推荐系统架构全景                   │
+├────────────────────────────────────────────────────┤
+│                                                    │
+│  数据层（Data Layer）                              │
+│  ┌──────────────────────────────────────────────┐    │
+│  │ • 用户行为日志（点击、播放、互动）        │    │
+│  │ • 内容元数据（标题、标签、分类）          │    │
+│  │ • 实时特征（热度、趋势、时效）            │    │
+│  │ • 离线特征（用户画像、内容画像）          │    │
+│  └──────────────────────────────────────────┘    │
+│                        ↓                           │
+│  召回层（Recall Layer）                            │
+│  ┌──────────────────────────────────────────┐    │
+│  │ • 多路召回：协同/内容/热门/标签/关注      │    │
+│  │ • 候选集：10000+ → 1000                   │    │
+│  │ • 响应时间：&lt; 50ms                        │    │
+│  └──────────────────────────────────────────┘    │
+│                        ↓                           │
+│  排序层（Ranking Layer）                           │
+│  ┌──────────────────────────────────────────┐    │
+│  │ • 粗排：1000 → 200（简单模型）            │    │
+│  │ • 精排：200 → 50（复杂模型）              │    │
+│  │ • 响应时间：&lt; 100ms                       │    │
+│  └──────────────────────────────────────────┘    │
+│                        ↓                           │
+│  策略层（Strategy Layer）                          │
+│  ┌──────────────────────────────────────────┐    │
+│  │ • 多样性控制                              │    │
+│  │ • 新内容扶持                              │    │
+│  │ • 创作者平衡                              │    │
+│  │ • 商业化混排                              │    │
+│  └──────────────────────────────────────────┘    │
+│                                                    │
+└────────────────────────────────────────────────────┘
+</code></pre></div>
+
+<h3 id="22">2.2 召回策略详解</h3>
+<h4 id="_22">多路召回架构</h4>
+<p>| 召回通道 | 算法类型 | 召回量 | 延迟 | 权重 |</p>
+<table>
+<thead>
+<tr>
+<th>召回通道</th>
+<th>算法类型</th>
+<th>召回量</th>
+<th>延迟</th>
+<th>权重</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>协同过滤</td>
+<td>UserCF/ItemCF</td>
+<td>300</td>
+<td>20ms</td>
+<td>25%</td>
+</tr>
+<tr>
+<td>内容召回</td>
+<td>Embedding相似度</td>
+<td>200</td>
+<td>30ms</td>
+<td>20%</td>
+</tr>
+<tr>
+<td>标签召回</td>
+<td>标签匹配</td>
+<td>200</td>
+<td>10ms</td>
+<td>15%</td>
+</tr>
+<tr>
+<td>热门召回</td>
+<td>统计排序</td>
+<td>100</td>
+<td>5ms</td>
+<td>10%</td>
+</tr>
+<tr>
+<td>关注召回</td>
+<td>社交关系</td>
+<td>150</td>
+<td>15ms</td>
+<td>15%</td>
+</tr>
+<tr>
+<td>历史召回</td>
+<td>序列模型</td>
+<td>150</td>
+<td>25ms</td>
+<td>15%</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_23">向量化召回实现</h4>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">EmbeddingRecall</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;基于向量相似度的召回实现&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">user_embeddings</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># 用户向量</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">item_embeddings</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># 内容向量</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">FaissIndex</span><span class="p">()</span>  <span class="c1"># 向量索引</span>
+
+    <span class="k">def</span> <span class="nf">build_index</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;构建向量索引&quot;&quot;&quot;</span>
+        <span class="c1"># 使用Faiss构建高效的向量检索索引</span>
+        <span class="n">vectors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">item_embeddings</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">vectors</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">recall</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">top_k</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;召回Top-K相似内容&quot;&quot;&quot;</span>
+        <span class="n">user_vec</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_embeddings</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">user_vec</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cold_start_recall</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span>
+
+        <span class="c1"># 向量相似度检索</span>
+        <span class="n">distances</span><span class="p">,</span> <span class="n">indices</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">user_vec</span><span class="p">,</span> <span class="n">top_k</span><span class="p">)</span>
+
+        <span class="c1"># 过滤已看过的内容</span>
+        <span class="n">candidates</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">filter_seen</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">indices</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">candidates</span>
+</code></pre></div>
+
+<h3 id="23">2.3 排序模型架构</h3>
+<h4 id="_24">特征处理流水线</h4>
+<div class="codehilite"><pre><span></span><code>┌─────────────────────────────────────────────────┐
+│            特征处理Pipeline                     │
+├─────────────────────────────────────────────────┤
+│                                                 │
+│  原始特征提取                                   │
+│    ├── 实时特征（Kafka/Redis）                 │
+│    └── 离线特征（Hive/HBase）                  │
+│              ↓                                  │
+│  特征工程                                       │
+│    ├── 数值特征：标准化、离散化                │
+│    ├── 类别特征：One-hot、Embedding            │
+│    └── 交叉特征：自动特征交叉                  │
+│              ↓                                  │
+│  特征选择                                       │
+│    ├── 重要性评分                              │
+│    └── 在线特征监控                            │
+│              ↓                                  │
+│  模型输入                                       │
+│    └── Dense Vector（~1000维）                 │
+│                                                 │
+└─────────────────────────────────────────────────┘
+</code></pre></div>
+
+<h4 id="_25">深度排序网络</h4>
+<div class="codehilite"><pre><span></span><code>输入层（1000维）
+    ↓
+Embedding层
+    ├── 用户ID Embedding（128维）
+    ├── 视频ID Embedding（128维）
+    └── 类别特征Embedding
+    ↓
+特征交叉层（Wide部分）
+    └── 手工特征交叉
+    ↓
+深度网络层（Deep部分）
+    ├── Hidden Layer 1（512维）+ ReLU + Dropout
+    ├── Hidden Layer 2（256维）+ ReLU + Dropout
+    └── Hidden Layer 3（128维）+ ReLU + Dropout
+    ↓
+融合层
+    └── Wide &amp; Deep 合并
+    ↓
+输出层
+    └── Sigmoid（点击率预测）
+</code></pre></div>
+
+<h3 id="24">2.4 实时推荐系统</h3>
+<h4 id="_26">流式计算架构</h4>
+<div class="codehilite"><pre><span></span><code>┌──────────────────────────────────────────────┐
+│           实时推荐数据流                     │
+├──────────────────────────────────────────────┤
+│                                              │
+│  用户行为 → Kafka → Flink                    │
+│                ↓                             │
+│         实时特征计算                         │
+│           ├── 5分钟时间窗口                 │
+│           ├── 用户兴趣漂移检测              │
+│           └── 热点发现                      │
+│                ↓                             │
+│         Redis特征存储                        │
+│                ↓                             │
+│         在线推理服务                         │
+│                ↓                             │
+│         推荐结果                             │
+│                                              │
+└──────────────────────────────────────────────┤
+</code></pre></div>
+
+<h4 id="_27">性能指标</h4>
+<p>| 指标 | 目标值 | 实际值 | 说明 |</p>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>目标值</th>
+<th>实际值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>端到端延迟</td>
+<td>&lt;200ms</td>
+<td>150ms</td>
+<td>从请求到返回</td>
+</tr>
+<tr>
+<td>召回延迟</td>
+<td>&lt;50ms</td>
+<td>35ms</td>
+<td>多路召回总耗时</td>
+</tr>
+<tr>
+<td>排序延迟</td>
+<td>&lt;100ms</td>
+<td>80ms</td>
+<td>模型推理时间</td>
+</tr>
+<tr>
+<td>QPS</td>
+<td>100K</td>
+<td>120K</td>
+<td>单机处理能力</td>
+</tr>
+<tr>
+<td>缓存命中率</td>
+<td>&gt;80%</td>
+<td>85%</td>
+<td>Redis缓存</td>
+</tr>
+</tbody>
+</table>
+<h3 id="25">2.5 分布式训练架构</h3>
+<h4 id="_28">参数服务器模式</h4>
+<div class="codehilite"><pre><span></span><code>┌────────────────────────────────────────────┐
+│         Parameter Server架构                │
+├────────────────────────────────────────────┤
+│                                            │
+│  Parameter Servers（参数服务器）           │
+│     ├── PS1：存储Embedding参数             │
+│     ├── PS2：存储Dense参数                 │
+│     └── PS3：备份与容错                    │
+│              ↓ ↑                           │
+│                                            │
+│  Worker Nodes（计算节点）                  │
+│     ├── Worker1：训练Batch1                │
+│     ├── Worker2：训练Batch2                │
+│     ├── Worker3：训练Batch3                │
+│     └── Worker4：训练Batch4                │
+│              ↓                             │
+│                                            │
+│  Model Serving（模型服务）                 │
+│     └── TensorFlow Serving集群             │
+│                                            │
+└────────────────────────────────────────────┘
+</code></pre></div>
+
+<hr />
+<h2 id="_29">深度学习应用</h2>
+<h3 id="31">3.1 模型演进历程</h3>
+<h4 id="_30">深度学习技术栈时间线</h4>
+<div class="codehilite"><pre><span></span><code><span class="mi">2017</span><span class="o">:</span><span class="w"> </span><span class="n">DNN</span><span class="w"> </span><span class="o">(</span><span class="n">Deep</span><span class="w"> </span><span class="n">Neural</span><span class="w"> </span><span class="n">Network</span><span class="o">)</span>
+<span class="w">      </span><span class="err">├──</span><span class="w"> </span><span class="mi">3</span><span class="err">层全连接网络</span>
+<span class="w">      </span><span class="err">└──</span><span class="w"> </span><span class="err">特征维度：</span><span class="mi">500</span>
+
+<span class="mi">2018</span><span class="o">:</span><span class="w"> </span><span class="n">Wide</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">Deep</span>
+<span class="w">      </span><span class="err">├──</span><span class="w"> </span><span class="n">Wide部分</span><span class="err">：线性模型</span>
+<span class="w">      </span><span class="err">└──</span><span class="w"> </span><span class="n">Deep部分</span><span class="err">：</span><span class="mi">4</span><span class="err">层</span><span class="n">DNN</span>
+
+<span class="mi">2019</span><span class="o">:</span><span class="w"> </span><span class="n">DeepFM</span>
+<span class="w">      </span><span class="err">├──</span><span class="w"> </span><span class="n">FM特征交叉</span>
+<span class="w">      </span><span class="err">└──</span><span class="w"> </span><span class="n">Deep网络学习高阶特征</span>
+
+<span class="mi">2020</span><span class="o">:</span><span class="w"> </span><span class="n">DIEN</span><span class="w"> </span><span class="o">(</span><span class="n">Deep</span><span class="w"> </span><span class="n">Interest</span><span class="w"> </span><span class="n">Evolution</span><span class="w"> </span><span class="n">Network</span><span class="o">)</span>
+<span class="w">      </span><span class="err">├──</span><span class="w"> </span><span class="err">兴趣抽取层</span>
+<span class="w">      </span><span class="err">└──</span><span class="w"> </span><span class="err">兴趣演化层</span>
+
+<span class="mi">2021</span><span class="o">:</span><span class="w"> </span><span class="n">Multi</span><span class="o">-</span><span class="n">Task</span><span class="w"> </span><span class="n">Learning</span>
+<span class="w">      </span><span class="err">├──</span><span class="w"> </span><span class="err">点击率预测</span>
+<span class="w">      </span><span class="err">├──</span><span class="w"> </span><span class="err">完播率预测</span>
+<span class="w">      </span><span class="err">└──</span><span class="w"> </span><span class="err">互动率预测</span>
+
+<span class="mi">2022</span><span class="o">:</span><span class="w"> </span><span class="n">Transformer应用</span>
+<span class="w">      </span><span class="err">├──</span><span class="w"> </span><span class="n">Self</span><span class="o">-</span><span class="n">Attention机制</span>
+<span class="w">      </span><span class="err">└──</span><span class="w"> </span><span class="err">长序列建模</span>
+
+<span class="mi">2023</span><span class="o">:</span><span class="w"> </span><span class="err">大模型融合</span>
+<span class="w">      </span><span class="err">├──</span><span class="w"> </span><span class="n">LLM特征提取</span>
+<span class="w">      </span><span class="err">└──</span><span class="w"> </span><span class="err">多模态理解</span>
+</code></pre></div>
+
+<h3 id="32">3.2 核心模型详解</h3>
+<h4 id="dien">DIEN架构实现</h4>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">DIEN</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;深度兴趣演化网络&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="c1"># 兴趣抽取层（GRU）</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">interest_extractor</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">GRU</span><span class="p">(</span>
+            <span class="n">input_size</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">embedding_dim</span><span class="p">,</span>
+            <span class="n">hidden_size</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">hidden_size</span><span class="p">,</span>
+            <span class="n">num_layers</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+            <span class="n">batch_first</span><span class="o">=</span><span class="kc">True</span>
+        <span class="p">)</span>
+
+        <span class="c1"># 兴趣演化层（AUGRU）</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">interest_evolution</span> <span class="o">=</span> <span class="n">AUGRU</span><span class="p">(</span>
+            <span class="n">input_size</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">hidden_size</span><span class="p">,</span>
+            <span class="n">hidden_size</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">hidden_size</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Attention机制</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">attention</span> <span class="o">=</span> <span class="n">MultiHeadAttention</span><span class="p">(</span>
+            <span class="n">hidden_size</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">hidden_size</span><span class="p">,</span>
+            <span class="n">num_heads</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">num_heads</span>
+        <span class="p">)</span>
+
+        <span class="c1"># 预测层</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">prediction</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">hidden_size</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.2</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">80</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.2</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Sigmoid</span><span class="p">()</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_seq</span><span class="p">,</span> <span class="n">target_item</span><span class="p">,</span> <span class="n">neg_items</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="c1"># 兴趣抽取</span>
+        <span class="n">interests</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">interest_extractor</span><span class="p">(</span><span class="n">user_seq</span><span class="p">)</span>
+
+        <span class="c1"># 辅助损失（使用负样本）</span>
+        <span class="k">if</span> <span class="n">neg_items</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">aux_loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">auxiliary_loss</span><span class="p">(</span><span class="n">interests</span><span class="p">,</span> <span class="n">neg_items</span><span class="p">)</span>
+
+        <span class="c1"># 兴趣演化</span>
+        <span class="n">evolved_interests</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">interest_evolution</span><span class="p">(</span>
+            <span class="n">interests</span><span class="p">,</span> <span class="n">target_item</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Attention pooling</span>
+        <span class="n">final_interest</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">attention</span><span class="p">(</span>
+            <span class="n">evolved_interests</span><span class="p">,</span> <span class="n">target_item</span>
+        <span class="p">)</span>
+
+        <span class="c1"># 预测</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">prediction</span><span class="p">(</span><span class="n">final_interest</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">output</span><span class="p">,</span> <span class="n">aux_loss</span> <span class="k">if</span> <span class="n">neg_items</span> <span class="k">else</span> <span class="n">output</span>
+</code></pre></div>
+
+<h4 id="_31">多任务学习框架</h4>
+<div class="codehilite"><pre><span></span><code>┌──────────────────────────────────────────────┐
+│           多任务学习架构（MMOE）             │
+├──────────────────────────────────────────────┤
+│                                              │
+│  输入特征                                    │
+│     ↓                                        │
+│  共享底层（Shared Bottom）                   │
+│     ├── Expert 1：用户行为专家              │
+│     ├── Expert 2：内容理解专家              │
+│     ├── Expert 3：上下文专家                │
+│     └── Expert 4：统计特征专家              │
+│            ↓                                 │
+│  门控网络（Gating Network）                  │
+│     ├── Gate 1 → 点击率任务                 │
+│     ├── Gate 2 → 完播率任务                 │
+│     └── Gate 3 → 互动率任务                 │
+│            ↓                                 │
+│  任务特定层（Task-specific）                 │
+│     ├── Tower 1：CTR预测                    │
+│     ├── Tower 2：完播率预测                 │
+│     └── Tower 3：互动率预测                 │
+│            ↓                                 │
+│  多目标优化                                  │
+│     └── Loss = α*L_ctr + β*L_finish + γ*L_interact │
+│                                              │
+└──────────────────────────────────────────────┘
+</code></pre></div>
+
+<h3 id="33">3.3 特征工程创新</h3>
+<h4 id="_32">多模态特征融合</h4>
+<p>| 模态类型 | 特征提取方法 | 维度 | 应用场景 |</p>
+<table>
+<thead>
+<tr>
+<th>模态类型</th>
+<th>特征提取方法</th>
+<th>维度</th>
+<th>应用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>视频帧</td>
+<td>ResNet/ViT</td>
+<td>2048</td>
+<td>内容理解</td>
+</tr>
+<tr>
+<td>音频</td>
+<td>Wav2Vec</td>
+<td>768</td>
+<td>音乐/语音识别</td>
+</tr>
+<tr>
+<td>文本</td>
+<td>BERT/RoBERTa</td>
+<td>768</td>
+<td>标题/弹幕理解</td>
+</tr>
+<tr>
+<td>用户行为</td>
+<td>RNN/Transformer</td>
+<td>512</td>
+<td>序列建模</td>
+</tr>
+<tr>
+<td>图结构</td>
+<td>GNN</td>
+<td>256</td>
+<td>社交关系</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_33">实时特征工程</h4>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">RealtimeFeatureEngine</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;实时特征计算引擎&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">redis_client</span> <span class="o">=</span> <span class="n">Redis</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">kafka_consumer</span> <span class="o">=</span> <span class="n">KafkaConsumer</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">compute_user_features</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">):</span>
+        <span class="n">features</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="c1"># 短期兴趣（5分钟窗口）</span>
+        <span class="n">features</span><span class="p">[</span><span class="s1">&#39;short_term&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_recent_behaviors</span><span class="p">(</span>
+            <span class="n">user_id</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="s1">&#39;5m&#39;</span>
+        <span class="p">)</span>
+
+        <span class="c1"># 中期兴趣（1小时窗口）</span>
+        <span class="n">features</span><span class="p">[</span><span class="s1">&#39;medium_term&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_recent_behaviors</span><span class="p">(</span>
+            <span class="n">user_id</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="s1">&#39;1h&#39;</span>
+        <span class="p">)</span>
+
+        <span class="c1"># 实时统计特征</span>
+        <span class="n">features</span><span class="p">[</span><span class="s1">&#39;realtime_stats&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;click_rate_5m&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">compute_ctr</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="s1">&#39;5m&#39;</span><span class="p">),</span>
+            <span class="s1">&#39;watch_time_avg&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">compute_avg_watch_time</span><span class="p">(</span><span class="n">user_id</span><span class="p">),</span>
+            <span class="s1">&#39;interaction_rate&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">compute_interaction_rate</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span>
+        <span class="p">}</span>
+
+        <span class="c1"># 上下文特征</span>
+        <span class="n">features</span><span class="p">[</span><span class="s1">&#39;context&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;time_of_day&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_time_features</span><span class="p">(),</span>
+            <span class="s1">&#39;device_type&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_device_info</span><span class="p">(</span><span class="n">user_id</span><span class="p">),</span>
+            <span class="s1">&#39;network_type&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_network_info</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="n">features</span>
+</code></pre></div>
+
+<h3 id="34">3.4 模型优化技术</h3>
+<h4 id="_34">模型压缩与加速</h4>
+<div class="codehilite"><pre><span></span><code>┌─────────────────────────────────────────────┐
+│           模型优化Pipeline                  │
+├─────────────────────────────────────────────┤
+│                                             │
+│  原始模型（1GB）                            │
+│     ↓                                       │
+│  知识蒸馏（Knowledge Distillation）         │
+│     Teacher Model → Student Model           │
+│     压缩率：4x                              │
+│     ↓                                       │
+│  量化（Quantization）                       │
+│     FP32 → INT8                            │
+│     压缩率：4x                              │
+│     ↓                                       │
+│  剪枝（Pruning）                            │
+│     移除冗余连接                            │
+│     压缩率：2x                              │
+│     ↓                                       │
+│  优化后模型（31.25MB）                      │
+│     推理速度提升：10x                       │
+│     精度损失：&lt;1%                           │
+│                                             │
+└─────────────────────────────────────────────┘
+</code></pre></div>
+
+<h4 id="_35">在线学习系统</h4>
+<p>| 组件 | 技术选型 | 功能 | 性能指标 |</p>
+<table>
+<thead>
+<tr>
+<th>组件</th>
+<th>技术选型</th>
+<th>功能</th>
+<th>性能指标</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>特征更新</td>
+<td>Flink</td>
+<td>实时特征计算</td>
+<td>延迟&lt;100ms</td>
+</tr>
+<tr>
+<td>模型更新</td>
+<td>Parameter Server</td>
+<td>增量训练</td>
+<td>5分钟更新周期</td>
+</tr>
+<tr>
+<td>效果评估</td>
+<td>A/B Testing</td>
+<td>实时效果监控</td>
+<td>秒级指标</td>
+</tr>
+<tr>
+<td>回滚机制</td>
+<td>Model Registry</td>
+<td>版本管理</td>
+<td>1分钟回滚</td>
+</tr>
+</tbody>
+</table>
+<h3 id="35">3.5 前沿技术探索</h3>
+<h4 id="transformer">Transformer在推荐中的应用</h4>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">BST</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Behavior Sequence Transformer&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+        <span class="c1"># Position encoding</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">position_encoding</span> <span class="o">=</span> <span class="n">PositionalEncoding</span><span class="p">(</span>
+            <span class="n">d_model</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">d_model</span><span class="p">,</span>
+            <span class="n">max_len</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">max_seq_len</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Multi-head self-attention blocks</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">transformer_blocks</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ModuleList</span><span class="p">([</span>
+            <span class="n">TransformerBlock</span><span class="p">(</span>
+                <span class="n">d_model</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">d_model</span><span class="p">,</span>
+                <span class="n">n_heads</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">n_heads</span><span class="p">,</span>
+                <span class="n">d_ff</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">d_ff</span><span class="p">,</span>
+                <span class="n">dropout</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">dropout</span>
+            <span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">n_blocks</span><span class="p">)</span>
+        <span class="p">])</span>
+
+        <span class="c1"># Target attention</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">target_attention</span> <span class="o">=</span> <span class="n">TargetAttention</span><span class="p">(</span>
+            <span class="n">d_model</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">d_model</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">behavior_sequence</span><span class="p">,</span> <span class="n">target_item</span><span class="p">):</span>
+        <span class="c1"># 添加位置编码</span>
+        <span class="n">seq_emb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">position_encoding</span><span class="p">(</span><span class="n">behavior_sequence</span><span class="p">)</span>
+
+        <span class="c1"># Transformer blocks</span>
+        <span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">transformer_blocks</span><span class="p">:</span>
+            <span class="n">seq_emb</span> <span class="o">=</span> <span class="n">block</span><span class="p">(</span><span class="n">seq_emb</span><span class="p">)</span>
+
+        <span class="c1"># Target-aware attention</span>
+        <span class="n">user_interest</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">target_attention</span><span class="p">(</span>
+            <span class="n">seq_emb</span><span class="p">,</span> <span class="n">target_item</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">user_interest</span>
+</code></pre></div>
+
+<h4 id="_36">图神经网络应用</h4>
+<div class="codehilite"><pre><span></span><code>┌──────────────────────────────────────────────┐
+│            图神经网络推荐架构                │
+├──────────────────────────────────────────────┤
+│                                              │
+│  用户-物品二部图                             │
+│     ├── 用户节点：100M+                     │
+│     ├── 物品节点：10M+                      │
+│     └── 边：交互关系                        │
+│              ↓                               │
+│  图卷积层（GCN）                             │
+│     ├── Layer 1：邻居聚合                   │
+│     ├── Layer 2：特征传播                   │
+│     └── Layer 3：高阶关系                   │
+│              ↓                               │
+│  节点Embedding                               │
+│     ├── 用户Embedding                       │
+│     └── 物品Embedding                       │
+│              ↓                               │
+│  相似度计算                                  │
+│     └── 内积/余弦相似度                      │
+│                                              │
+└──────────────────────────────────────────────┘
+</code></pre></div>
+
+<hr />
+<h2 id="_37">用户画像系统</h2>
+<h3 id="41_1">4.1 画像体系架构</h3>
+<h4 id="_38">多层次用户画像</h4>
+<div class="codehilite"><pre><span></span><code>┌──────────────────────────────────────────────┐
+│             B站用户画像体系                  │
+├──────────────────────────────────────────────┤
+│                                              │
+│  基础属性层                                  │
+│   ├── 人口统计：年龄、性别、地域            │
+│   ├── 设备信息：机型、系统、网络            │
+│   └── 账号信息：等级、大会员、注册时间      │
+│                                              │
+│  行为特征层                                  │
+│   ├── 观看行为：时长、频次、完播率          │
+│   ├── 互动行为：点赞、投币、收藏、弹幕      │
+│   ├── 社交行为：关注、私信、动态            │
+│   └── 创作行为：投稿、直播、专栏            │
+│                                              │
+│  兴趣标签层                                  │
+│   ├── 内容偏好：分区、标签、UP主            │
+│   ├── 时间偏好：活跃时段、观看节奏          │
+│   └── 消费偏好：付费意愿、打赏习惯          │
+│                                              │
+│  价值分层                                    │
+│   ├── 用户价值：LTV、活跃度、留存          │
+│   ├── 内容价值：内容消费量、质量偏好        │
+│   └── 社区价值：UGC贡献、社交影响力         │
+│                                              │
+└──────────────────────────────────────────────┘
+</code></pre></div>
+
+<h3 id="42_1">4.2 标签体系建设</h3>
+<h4 id="_39">标签分类架构</h4>
+<p>| 标签类型 | 数量级 | 更新频率 | 应用场景 |</p>
+<table>
+<thead>
+<tr>
+<th>标签类型</th>
+<th>数量级</th>
+<th>更新频率</th>
+<th>应用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>基础标签</td>
+<td>100+</td>
+<td>每天</td>
+<td>用户分群</td>
+</tr>
+<tr>
+<td>兴趣标签</td>
+<td>5000+</td>
+<td>实时</td>
+<td>内容推荐</td>
+</tr>
+<tr>
+<td>行为标签</td>
+<td>1000+</td>
+<td>每小时</td>
+<td>行为预测</td>
+</tr>
+<tr>
+<td>预测标签</td>
+<td>500+</td>
+<td>每天</td>
+<td>流失预警</td>
+</tr>
+<tr>
+<td>圈层标签</td>
+<td>200+</td>
+<td>每周</td>
+<td>社群运营</td>
+</tr>
+</tbody>
+</table>
+<h4 id="pipeline_1">标签生成Pipeline</h4>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">TagGenerationPipeline</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;用户标签生成流水线&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rule_engine</span> <span class="o">=</span> <span class="n">RuleEngine</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ml_models</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tag_storage</span> <span class="o">=</span> <span class="n">TagStorage</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">generate_interest_tags</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;生成兴趣标签&quot;&quot;&quot;</span>
+        <span class="c1"># 获取用户行为序列</span>
+        <span class="n">behaviors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_user_behaviors</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">days</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+
+        <span class="c1"># 内容标签聚合</span>
+        <span class="n">content_tags</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">behavior</span> <span class="ow">in</span> <span class="n">behaviors</span><span class="p">:</span>
+            <span class="n">video_tags</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_video_tags</span><span class="p">(</span><span class="n">behavior</span><span class="o">.</span><span class="n">video_id</span><span class="p">)</span>
+            <span class="n">weight</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calculate_weight</span><span class="p">(</span><span class="n">behavior</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">video_tags</span><span class="p">:</span>
+                <span class="n">content_tags</span><span class="p">[</span><span class="n">tag</span><span class="p">]</span> <span class="o">+=</span> <span class="n">weight</span>
+
+        <span class="c1"># TF-IDF标准化</span>
+        <span class="n">user_tags</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tfidf_normalize</span><span class="p">(</span><span class="n">content_tags</span><span class="p">)</span>
+
+        <span class="c1"># 标签衰减（时间衰减因子）</span>
+        <span class="n">decayed_tags</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_time_decay</span><span class="p">(</span><span class="n">user_tags</span><span class="p">)</span>
+
+        <span class="c1"># 阈值过滤</span>
+        <span class="n">final_tags</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">tag</span><span class="p">:</span> <span class="n">score</span> 
+            <span class="k">for</span> <span class="n">tag</span><span class="p">,</span> <span class="n">score</span> <span class="ow">in</span> <span class="n">decayed_tags</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> 
+            <span class="k">if</span> <span class="n">score</span> <span class="o">&gt;</span> <span class="mf">0.3</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="n">final_tags</span>
+
+    <span class="k">def</span> <span class="nf">calculate_weight</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">behavior</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;计算行为权重&quot;&quot;&quot;</span>
+        <span class="n">weights</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;view&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+            <span class="s1">&#39;like&#39;</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">,</span>
+            <span class="s1">&#39;coin&#39;</span><span class="p">:</span> <span class="mf">3.0</span><span class="p">,</span>
+            <span class="s1">&#39;favorite&#39;</span><span class="p">:</span> <span class="mf">3.0</span><span class="p">,</span>
+            <span class="s1">&#39;share&#39;</span><span class="p">:</span> <span class="mf">4.0</span><span class="p">,</span>
+            <span class="s1">&#39;comment&#39;</span><span class="p">:</span> <span class="mf">2.5</span>
+        <span class="p">}</span>
+
+        <span class="c1"># 完播率加权</span>
+        <span class="n">completion_rate</span> <span class="o">=</span> <span class="n">behavior</span><span class="o">.</span><span class="n">watch_time</span> <span class="o">/</span> <span class="n">behavior</span><span class="o">.</span><span class="n">video_duration</span>
+        <span class="n">base_weight</span> <span class="o">=</span> <span class="n">weights</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">behavior</span><span class="o">.</span><span class="n">action_type</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">base_weight</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">completion_rate</span><span class="p">)</span>
+</code></pre></div>
+
+<h3 id="43_1">4.3 用户分群策略</h3>
+<h4 id="_40">核心用户分群</h4>
+<div class="codehilite"><pre><span></span><code>┌──────────────────────────────────────────────┐
+│              用户分群矩阵                    │
+├──────────────────────────────────────────────┤
+│                                              │
+│  活跃度维度                                  │
+│   高 ┌────────┬────────┬────────┐          │
+│      │核心用户│活跃用户│普通用户│          │
+│   中 ├────────┼────────┼────────┤          │
+│      │忠实用户│常规用户│低频用户│          │
+│   低 ├────────┼────────┼────────┤          │
+│      │回流用户│沉睡用户│流失用户│          │
+│      └────────┴────────┴────────┘          │
+│        高      中      低                    │
+│            价值度维度                        │
+│                                              │
+│  分群策略                                    │
+│   • 核心用户：专属权益、优先体验            │
+│   • 活跃用户：内容精推、社区互动            │
+│   • 沉睡用户：召回策略、激励唤醒            │
+│   • 新用户：引导教育、兴趣探索              │
+│                                              │
+└──────────────────────────────────────────────┘
+</code></pre></div>
+
+<h4 id="rfm_1">RFM模型应用</h4>
+<p>| 维度 | 定义 | 计算方法 | 分层阈值 |</p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>定义</th>
+<th>计算方法</th>
+<th>分层阈值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R(Recency)</td>
+<td>最近活跃</td>
+<td>距今天数</td>
+<td>1/3/7/30天</td>
+</tr>
+<tr>
+<td>F(Frequency)</td>
+<td>活跃频次</td>
+<td>月均活跃天数</td>
+<td>1/5/15/25天</td>
+</tr>
+<tr>
+<td>M(Monetary)</td>
+<td>消费价值</td>
+<td>月均消费金额</td>
+<td>¥0/10/50/200</td>
+</tr>
+</tbody>
+</table>
+<h3 id="44_1">4.4 实时画像更新</h3>
+<h4 id="_41">流式计算架构</h4>
+<div class="codehilite"><pre><span></span><code>┌──────────────────────────────────────────────┐
+│           实时画像更新系统                   │
+├──────────────────────────────────────────────┤
+│                                              │
+│  数据源                                      │
+│   ├── 客户端埋点 → Kafka                    │
+│   ├── 服务端日志 → Flume                    │
+│   └── 数据库Binlog → Canal                  │
+│                ↓                             │
+│  实时计算层（Flink）                         │
+│   ├── 事件清洗：去重、过滤、标准化          │
+│   ├── 特征计算：滑动窗口聚合                │
+│   └── 标签更新：增量计算                    │
+│                ↓                             │
+│  存储层                                      │
+│   ├── Redis：热数据（1天内）                │
+│   ├── HBase：温数据（30天内）               │
+│   └── Hive：冷数据（历史归档）              │
+│                ↓                             │
+│  服务层                                      │
+│   └── 画像查询API（QPS: 100K+）             │
+│                                              │
+└──────────────────────────────────────────────┘
+</code></pre></div>
+
+<h4 id="_42">画像更新策略</h4>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">ProfileUpdateStrategy</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;画像更新策略&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">redis</span> <span class="o">=</span> <span class="n">RedisCluster</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hbase</span> <span class="o">=</span> <span class="n">HBaseClient</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">update_realtime_profile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;实时画像更新&quot;&quot;&quot;</span>
+        <span class="c1"># 短期行为序列更新</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update_behavior_sequence</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">event</span><span class="p">)</span>
+
+        <span class="c1"># 实时统计指标更新</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update_statistics</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">event</span><span class="p">)</span>
+
+        <span class="c1"># 兴趣标签增量更新</span>
+        <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">type</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;view&#39;</span><span class="p">,</span> <span class="s1">&#39;like&#39;</span><span class="p">,</span> <span class="s1">&#39;favorite&#39;</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">update_interest_tags</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">event</span><span class="p">)</span>
+
+        <span class="c1"># 触发规则引擎</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">trigger_rules</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">event</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">update_behavior_sequence</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;更新行为序列（保留最近1000条）&quot;&quot;&quot;</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;user:behavior:</span><span class="si">{</span><span class="n">user_id</span><span class="si">}</span><span class="s2">&quot;</span>
+
+        <span class="c1"># 使用Redis List存储</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">redis</span><span class="o">.</span><span class="n">lpush</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">event</span><span class="o">.</span><span class="n">to_json</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">redis</span><span class="o">.</span><span class="n">ltrim</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">999</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">redis</span><span class="o">.</span><span class="n">expire</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="mi">86400</span><span class="p">)</span>  <span class="c1"># 1天过期</span>
+
+    <span class="k">def</span> <span class="nf">merge_profiles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;多时间尺度画像融合&quot;&quot;&quot;</span>
+        <span class="c1"># 实时画像（5分钟）</span>
+        <span class="n">realtime</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_realtime_profile</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span>
+
+        <span class="c1"># 近期画像（1天）</span>
+        <span class="n">recent</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_recent_profile</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span>
+
+        <span class="c1"># 长期画像（30天）</span>
+        <span class="n">longterm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_longterm_profile</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span>
+
+        <span class="c1"># 加权融合</span>
+        <span class="n">merged</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;interests&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">merge_interests</span><span class="p">(</span>
+                <span class="n">realtime</span><span class="o">.</span><span class="n">interests</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">,</span>
+                <span class="n">recent</span><span class="o">.</span><span class="n">interests</span> <span class="o">*</span> <span class="mf">0.3</span><span class="p">,</span>
+                <span class="n">longterm</span><span class="o">.</span><span class="n">interests</span> <span class="o">*</span> <span class="mf">0.2</span>
+            <span class="p">),</span>
+            <span class="s1">&#39;behaviors&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">merge_behaviors</span><span class="p">(</span>
+                <span class="n">realtime</span><span class="p">,</span> <span class="n">recent</span><span class="p">,</span> <span class="n">longterm</span>
+            <span class="p">)</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="n">merged</span>
+</code></pre></div>
+
+<h3 id="45_1">4.5 画像应用场景</h3>
+<h4 id="_43">个性化推荐</h4>
+<div class="codehilite"><pre><span></span><code>用户画像 → 召回策略
+  ├── 兴趣标签 → 标签召回
+  ├── 行为序列 → 协同过滤
+  ├── 社交关系 → 社交推荐
+  └── 消费能力 → 付费内容推荐
+</code></pre></div>
+
+<h4 id="_44">精准营销</h4>
+<p>| 场景 | 画像维度 | 策略 | 效果 |</p>
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th>画像维度</th>
+<th>策略</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>拉新</td>
+<td>相似人群</td>
+<td>Look-alike</td>
+<td>CTR +30%</td>
+</tr>
+<tr>
+<td>促活</td>
+<td>沉睡用户</td>
+<td>Push召回</td>
+<td>唤醒率 15%</td>
+</tr>
+<tr>
+<td>付费转化</td>
+<td>付费意愿</td>
+<td>定向优惠</td>
+<td>转化率 +50%</td>
+</tr>
+<tr>
+<td>防流失</td>
+<td>流失预警</td>
+<td>挽留策略</td>
+<td>留存 +20%</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="ab">AB测试平台</h2>
+<h3 id="51">5.1 平台架构演进</h3>
+<h4 id="_45">发展历程</h4>
+<div class="codehilite"><pre><span></span><code><span class="mi">2015</span><span class="o">:</span><span class="w"> </span><span class="err">手工</span><span class="n">AB测试</span>
+<span class="w">     </span><span class="err">├──</span><span class="w"> </span><span class="n">Excel记录实验</span>
+<span class="w">     </span><span class="err">└──</span><span class="w"> </span><span class="err">人工分析数据</span>
+
+<span class="mi">2016</span><span class="o">:</span><span class="w"> </span><span class="err">初代</span><span class="n">AB平台</span>
+<span class="w">     </span><span class="err">├──</span><span class="w"> </span><span class="err">简单分流系统</span>
+<span class="w">     </span><span class="err">└──</span><span class="w"> </span><span class="err">基础指标统计</span>
+
+<span class="mi">2018</span><span class="o">:</span><span class="w"> </span><span class="err">平台化建设</span>
+<span class="w">     </span><span class="err">├──</span><span class="w"> </span><span class="err">实验管理系统</span>
+<span class="w">     </span><span class="err">├──</span><span class="w"> </span><span class="err">自动化分析</span>
+<span class="w">     </span><span class="err">└──</span><span class="w"> </span><span class="err">多层实验框架</span>
+
+<span class="mi">2020</span><span class="o">:</span><span class="w"> </span><span class="err">智能化升级</span>
+<span class="w">     </span><span class="err">├──</span><span class="w"> </span><span class="err">自动调参</span>
+<span class="w">     </span><span class="err">├──</span><span class="w"> </span><span class="err">早停机制</span>
+<span class="w">     </span><span class="err">└──</span><span class="w"> </span><span class="err">因果推断</span>
+
+<span class="mi">2023</span><span class="o">:</span><span class="w"> </span><span class="err">全域实验平台</span>
+<span class="w">     </span><span class="err">├──</span><span class="w"> </span><span class="err">端到端实验</span>
+<span class="w">     </span><span class="err">├──</span><span class="w"> </span><span class="err">多业务线支持</span>
+<span class="w">     </span><span class="err">└──</span><span class="w"> </span><span class="err">实时决策系统</span>
+</code></pre></div>
+
+<h4 id="_46">系统架构</h4>
+<div class="codehilite"><pre><span></span><code>┌──────────────────────────────────────────────┐
+│            B站AB测试平台架构                 │
+├──────────────────────────────────────────────┤
+│                                              │
+│  实验配置层                                  │
+│   ├── 实验管理UI                            │
+│   ├── 参数配置                              │
+│   └── 审批流程                              │
+│                ↓                             │
+│  分流服务层                                  │
+│   ├── 用户分流（哈希分桶）                  │
+│   ├── 流量隔离（正交实验）                  │
+│   └── 灰度发布                              │
+│                ↓                             │
+│  实验执行层                                  │
+│   ├── 客户端SDK                             │
+│   ├── 服务端SDK                             │
+│   └── 配置中心                              │
+│                ↓                             │
+│  数据收集层                                  │
+│   ├── 埋点采集                              │
+│   ├── 日志聚合                              │
+│   └── 实时流处理                            │
+│                ↓                             │
+│  分析决策层                                  │
+│   ├── 统计分析                              │
+│   ├── 效果评估                              │
+│   └── 自动决策                              │
+│                                              │
+└──────────────────────────────────────────────┘
+</code></pre></div>
+
+<h3 id="52">5.2 分流系统设计</h3>
+<h4 id="_47">分流算法</h4>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">TrafficSplitter</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;流量分流器&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">experiments</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">user_buckets</span> <span class="o">=</span> <span class="mi">1000</span>  <span class="c1"># 用户分桶数</span>
+
+    <span class="k">def</span> <span class="nf">get_user_bucket</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;计算用户所属桶&quot;&quot;&quot;</span>
+        <span class="c1"># 使用MurmurHash保证分布均匀</span>
+        <span class="n">hash_value</span> <span class="o">=</span> <span class="n">mmh3</span><span class="o">.</span><span class="n">hash</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">user_id</span><span class="p">))</span>
+        <span class="k">return</span> <span class="nb">abs</span><span class="p">(</span><span class="n">hash_value</span><span class="p">)</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_buckets</span>
+
+    <span class="k">def</span> <span class="nf">assign_experiment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">experiment_config</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;分配实验组&quot;&quot;&quot;</span>
+        <span class="n">bucket</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_user_bucket</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span>
+
+        <span class="c1"># 检查用户是否在实验流量中</span>
+        <span class="k">if</span> <span class="n">bucket</span> <span class="o">&lt;</span> <span class="n">experiment_config</span><span class="o">.</span><span class="n">traffic_start</span> <span class="ow">or</span> \
+           <span class="n">bucket</span> <span class="o">&gt;=</span> <span class="n">experiment_config</span><span class="o">.</span><span class="n">traffic_end</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s1">&#39;control&#39;</span>  <span class="c1"># 对照组</span>
+
+        <span class="c1"># 在实验流量中进一步分组</span>
+        <span class="n">exp_bucket</span> <span class="o">=</span> <span class="n">bucket</span> <span class="o">-</span> <span class="n">experiment_config</span><span class="o">.</span><span class="n">traffic_start</span>
+        <span class="n">bucket_size</span> <span class="o">=</span> <span class="p">(</span><span class="n">experiment_config</span><span class="o">.</span><span class="n">traffic_end</span> <span class="o">-</span> 
+                      <span class="n">experiment_config</span><span class="o">.</span><span class="n">traffic_start</span><span class="p">)</span>
+
+        <span class="c1"># 根据配置比例分配到不同实验组</span>
+        <span class="n">cumulative</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">group</span><span class="p">,</span> <span class="n">ratio</span> <span class="ow">in</span> <span class="n">experiment_config</span><span class="o">.</span><span class="n">groups</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">cumulative</span> <span class="o">+=</span> <span class="n">ratio</span> <span class="o">*</span> <span class="n">bucket_size</span>
+            <span class="k">if</span> <span class="n">exp_bucket</span> <span class="o">&lt;</span> <span class="n">cumulative</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">group</span>
+
+        <span class="k">return</span> <span class="s1">&#39;control&#39;</span>
+</code></pre></div>
+
+<h4 id="_48">正交实验框架</h4>
+<div class="codehilite"><pre><span></span><code>┌──────────────────────────────────────────────┐
+│              正交实验设计                    │
+├──────────────────────────────────────────────┤
+│                                              │
+│  Layer 1: 推荐算法实验                       │
+│   ├── 实验A：新召回策略（10%流量）          │
+│   ├── 实验B：排序模型v2（10%流量）          │
+│   └── 基线：当前算法（80%流量）             │
+│                                              │
+│  Layer 2: UI实验                             │
+│   ├── 实验C：新首页布局（20%流量）          │
+│   └── 基线：当前UI（80%流量）               │
+│                                              │
+│  Layer 3: 业务策略实验                       │
+│   ├── 实验D：激励策略（15%流量）            │
+│   └── 基线：无激励（85%流量）               │
+│                                              │
+│  正交性保证：                                │
+│   • 每层独立分流                            │
+│   • 层间互不影响                            │
+│   • 支持2^n种组合                           │
+│                                              │
+└──────────────────────────────────────────────┘
+</code></pre></div>
+
+<h3 id="53">5.3 指标体系建设</h3>
+<h4 id="_49">核心指标分类</h4>
+<p>| 指标类型 | 具体指标 | 计算方法 | 决策权重 |</p>
+<table>
+<thead>
+<tr>
+<th>指标类型</th>
+<th>具体指标</th>
+<th>计算方法</th>
+<th>决策权重</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>北极星指标</td>
+<td>DAU</td>
+<td>日活跃用户数</td>
+<td>40%</td>
+</tr>
+<tr>
+<td>用户体验</td>
+<td>人均使用时长</td>
+<td>总时长/DAU</td>
+<td>25%</td>
+</tr>
+<tr>
+<td>内容消费</td>
+<td>人均播放量</td>
+<td>总播放/DAU</td>
+<td>20%</td>
+</tr>
+<tr>
+<td>社区互动</td>
+<td>互动率</td>
+<td>互动用户/活跃用户</td>
+<td>10%</td>
+</tr>
+<tr>
+<td>商业化</td>
+<td>ARPU</td>
+<td>总收入/活跃用户</td>
+<td>5%</td>
+</tr>
+</tbody>
+</table>
+<h4 id="pipeline_2">指标计算Pipeline</h4>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">MetricsCalculator</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;指标计算器&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spark</span> <span class="o">=</span> <span class="n">SparkSession</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">getOrCreate</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">calculate_experiment_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">experiment_id</span><span class="p">,</span> <span class="n">date</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;计算实验指标&quot;&quot;&quot;</span>
+
+        <span class="c1"># 获取实验用户</span>
+        <span class="n">exp_users</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_experiment_users</span><span class="p">(</span><span class="n">experiment_id</span><span class="p">,</span> <span class="n">date</span><span class="p">)</span>
+
+        <span class="n">metrics</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="c1"># 用户规模指标</span>
+        <span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;dau&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">exp_users</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+
+        <span class="c1"># 行为指标</span>
+        <span class="n">behaviors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_user_behaviors</span><span class="p">(</span><span class="n">exp_users</span><span class="p">,</span> <span class="n">date</span><span class="p">)</span>
+        <span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;avg_duration&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">behaviors</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span>
+            <span class="n">F</span><span class="o">.</span><span class="n">avg</span><span class="p">(</span><span class="s1">&#39;duration&#39;</span><span class="p">)</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;avg_plays&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">behaviors</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span>
+            <span class="n">F</span><span class="o">.</span><span class="n">avg</span><span class="p">(</span><span class="s1">&#39;play_count&#39;</span><span class="p">)</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="c1"># 留存指标</span>
+        <span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;retention_1d&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calculate_retention</span><span class="p">(</span>
+            <span class="n">exp_users</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">days</span><span class="o">=</span><span class="mi">1</span>
+        <span class="p">)</span>
+        <span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;retention_7d&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calculate_retention</span><span class="p">(</span>
+            <span class="n">exp_users</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">days</span><span class="o">=</span><span class="mi">7</span>
+        <span class="p">)</span>
+
+        <span class="c1"># 统计显著性检验</span>
+        <span class="n">control_metrics</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_control_metrics</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
+        <span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;p_value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">statistical_test</span><span class="p">(</span>
+            <span class="n">metrics</span><span class="p">,</span> <span class="n">control_metrics</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">metrics</span>
+
+    <span class="k">def</span> <span class="nf">statistical_test</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">treatment</span><span class="p">,</span> <span class="n">control</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;统计显著性检验&quot;&quot;&quot;</span>
+        <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+
+        <span class="c1"># T检验</span>
+        <span class="n">t_stat</span><span class="p">,</span> <span class="n">p_value</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span>
+            <span class="n">treatment</span><span class="p">[</span><span class="s1">&#39;samples&#39;</span><span class="p">],</span>
+            <span class="n">control</span><span class="p">[</span><span class="s1">&#39;samples&#39;</span><span class="p">]</span>
+        <span class="p">)</span>
+
+        <span class="c1"># 效应量计算（Cohen&#39;s d）</span>
+        <span class="n">effect_size</span> <span class="o">=</span> <span class="p">(</span><span class="n">treatment</span><span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">control</span><span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">])</span> <span class="o">/</span> \
+                     <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">treatment</span><span class="p">[</span><span class="s1">&#39;std&#39;</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">control</span><span class="p">[</span><span class="s1">&#39;std&#39;</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s1">&#39;p_value&#39;</span><span class="p">:</span> <span class="n">p_value</span><span class="p">,</span>
+            <span class="s1">&#39;effect_size&#39;</span><span class="p">:</span> <span class="n">effect_size</span><span class="p">,</span>
+            <span class="s1">&#39;significant&#39;</span><span class="p">:</span> <span class="n">p_value</span> <span class="o">&lt;</span> <span class="mf">0.05</span>
+        <span class="p">}</span>
+</code></pre></div>
+
+<h3 id="54">5.4 实验分析系统</h3>
+<h4 id="_50">自动化分析框架</h4>
+<div class="codehilite"><pre><span></span><code>┌──────────────────────────────────────────────┐
+│           实验分析流程                       │
+├──────────────────────────────────────────────┤
+│                                              │
+│  数据收集（T+0）                             │
+│   └── 实时指标采集                          │
+│            ↓                                 │
+│  数据质量检查（T+1小时）                     │
+│   ├── 数据完整性校验                        │
+│   ├── 异常值检测                            │
+│   └── 样本平衡性检查                        │
+│            ↓                                 │
+│  指标计算（T+2小时）                         │
+│   ├── 核心指标计算                          │
+│   ├── 分群指标计算                          │
+│   └── 漏斗分析                              │
+│            ↓                                 │
+│  统计分析（T+3小时）                         │
+│   ├── 显著性检验                            │
+│   ├── 置信区间计算                          │
+│   └── 多重检验校正                          │
+│            ↓                                 │
+│  效果评估（T+4小时）                         │
+│   ├── 提升度计算                            │
+│   ├── 分群效果分析                          │
+│   └── 负向指标监控                          │
+│            ↓                                 │
+│  决策建议（T+6小时）                         │
+│   └── 自动生成报告                          │
+│                                              │
+└──────────────────────────────────────────────┘
+</code></pre></div>
+
+<h4 id="_51">因果推断应用</h4>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">CausalInference</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;因果推断分析&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">estimate_ate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">treatment</span><span class="p">,</span> <span class="n">outcome</span><span class="p">,</span> <span class="n">confounders</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;估计平均处理效应（ATE）&quot;&quot;&quot;</span>
+
+        <span class="c1"># 倾向得分匹配</span>
+        <span class="n">ps_model</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
+        <span class="n">ps_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">confounders</span><span class="p">,</span> <span class="n">treatment</span><span class="p">)</span>
+        <span class="n">propensity_scores</span> <span class="o">=</span> <span class="n">ps_model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">confounders</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
+
+        <span class="c1"># 逆概率加权（IPW）</span>
+        <span class="n">weights</span> <span class="o">=</span> <span class="n">treatment</span> <span class="o">/</span> <span class="n">propensity_scores</span> <span class="o">+</span> \
+                 <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">treatment</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">propensity_scores</span><span class="p">)</span>
+
+        <span class="c1"># 加权回归</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">([</span><span class="n">treatment</span><span class="p">,</span> <span class="n">confounders</span><span class="p">]),</span>
+            <span class="n">outcome</span><span class="p">,</span>
+            <span class="n">sample_weight</span><span class="o">=</span><span class="n">weights</span>
+        <span class="p">)</span>
+
+        <span class="c1"># ATE = 处理组效果 - 对照组效果</span>
+        <span class="n">ate</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="c1"># Bootstrap计算置信区间</span>
+        <span class="n">ate_bootstrap</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
+            <span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">treatment</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">treatment</span><span class="p">))</span>
+            <span class="n">boot_ate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">estimate_ate_single</span><span class="p">(</span>
+                <span class="n">treatment</span><span class="p">[</span><span class="n">indices</span><span class="p">],</span>
+                <span class="n">outcome</span><span class="p">[</span><span class="n">indices</span><span class="p">],</span>
+                <span class="n">confounders</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span>
+            <span class="p">)</span>
+            <span class="n">ate_bootstrap</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">boot_ate</span><span class="p">)</span>
+
+        <span class="n">ci_lower</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">ate_bootstrap</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">)</span>
+        <span class="n">ci_upper</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">ate_bootstrap</span><span class="p">,</span> <span class="mf">97.5</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s1">&#39;ate&#39;</span><span class="p">:</span> <span class="n">ate</span><span class="p">,</span>
+            <span class="s1">&#39;ci_lower&#39;</span><span class="p">:</span> <span class="n">ci_lower</span><span class="p">,</span>
+            <span class="s1">&#39;ci_upper&#39;</span><span class="p">:</span> <span class="n">ci_upper</span>
+        <span class="p">}</span>
+</code></pre></div>
+
+<h3 id="55">5.5 实验最佳实践</h3>
+<h4 id="_52">实验设计原则</h4>
+<div class="codehilite"><pre><span></span><code>┌──────────────────────────────────────────────┐
+│            实验设计检查清单                  │
+├──────────────────────────────────────────────┤
+│                                              │
+│  ✓ 明确假设                                 │
+│    • 实验目标清晰                           │
+│    • 成功指标定义                           │
+│    • 预期效果量                             │
+│                                              │
+│  ✓ 样本量计算                               │
+│    • 统计功效 &gt; 80%                         │
+│    • 显著性水平 = 0.05                      │
+│    • 最小可检测效应（MDE）                  │
+│                                              │
+│  ✓ 随机化设计                               │
+│    • 分组随机性                             │
+│    • 样本平衡性                             │
+│    • 避免溢出效应                           │
+│                                              │
+│  ✓ 实验周期                                 │
+│    • 最短：1周（快速迭代）                  │
+│    • 标准：2周（常规实验）                  │
+│    • 长期：4周+（重大改动）                 │
+│                                              │
+│  ✓ 风险控制                                 │
+│    • 降级方案                               │
+│    • 实时监控                               │
+│    • 快速止损                               │
+│                                              │
+└──────────────────────────────────────────────┘
+</code></pre></div>
+
+<h4 id="_53">典型实验案例</h4>
+<h5 id="1">案例1：推荐算法优化</h5>
+<p>| 维度 | 详情 |</p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>详情</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>背景</td>
+<td>CTR增长放缓，需要算法突破</td>
+</tr>
+<tr>
+<td>假设</td>
+<td>引入Transformer能提升推荐效果</td>
+</tr>
+<tr>
+<td>实验设计</td>
+<td>10%流量，运行14天</td>
+</tr>
+<tr>
+<td>结果</td>
+<td>CTR +3.2%, 人均时长 +5.1%</td>
+</tr>
+<tr>
+<td>决策</td>
+<td>全量上线，继续优化</td>
+</tr>
+</tbody>
+</table>
+<h5 id="2ui">案例2：UI改版测试</h5>
+<p>| 维度 | 详情 |</p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>详情</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>背景</td>
+<td>首页信息密度过高</td>
+</tr>
+<tr>
+<td>假设</td>
+<td>简化布局能提升用户体验</td>
+</tr>
+<tr>
+<td>实验设计</td>
+<td>20%流量，运行21天</td>
+</tr>
+<tr>
+<td>结果</td>
+<td>留存率 +1.5%, 但时长 -2%</td>
+</tr>
+<tr>
+<td>决策</td>
+<td>部分采纳，保留核心改动</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_54">实验文化建设</h4>
+<div class="codehilite"><pre><span></span><code>B站实验文化核心理念：
+
+1. 数据驱动（Data-Driven）
+   • 一切以数据说话
+   • 拒绝拍脑袋决策
+
+2. 快速迭代（Fail Fast）
+   • 小步快跑
+   • 及时止损
+
+3. 科学严谨（Scientific）
+   • 统计显著性
+   • 因果关系验证
+
+4. 全员参与（Inclusive）
+   • 产品提假设
+   • 技术做实验
+   • 运营看数据
+
+5. 持续优化（Continuous）
+   • 复盘总结
+   • 知识沉淀
+</code></pre></div>
+
+<hr />
+            </article>
+            
+            <nav class="page-nav"><a href="chapter8.html" class="nav-link prev">← 第8章：视频技术架构</a><a href="chapter10.html" class="nav-link next">第10章：直播技术体系 →</a></nav>
+        </main>
+    </div>
+</body>
+</html>

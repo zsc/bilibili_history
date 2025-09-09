@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="./">
+    <title>第1章：创世纪（2009-2011）</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/highlight.css">
+    <script src="assets/script.js" defer></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$']],
+                displayMath: [['$$', '$$']],
+                processEscapes: false,
+                packages: {'[+]': ['noerrors', 'ams']}
+            },
+            options: {
+                ignoreHtmlClass: 'tex2jax_ignore',
+                processHtmlClass: 'tex2jax_process'
+            },
+            loader: {
+                load: ['[tex]/noerrors', '[tex]/ams']
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="container">
+        <nav id="sidebar" class="sidebar">
+            <div class="sidebar-header">
+                <h3>目录</h3>
+                <button id="sidebar-toggle" class="sidebar-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            <div class="sidebar-search">
+                <input type="text" id="sidebar-search-input" placeholder="搜索..." autocomplete="off">
+            </div>
+            <div id="tree-container">
+                <nav class="tree-nav" role="tree">
+                    <div class="tree-item " >
+                        <a href="index.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">B站技术发展史：从弹幕网站到综合性内容平台</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item active" >
+                        <a href="chapter1.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第1章：创世纪（2009-2011）</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter2.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第2章：成长期（2012-2014）</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter3.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第3章：移动转型（2015-2017）</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter4.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第4章：规模化扩张（2018-2020）</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter5.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第5章：技术深耕（2021-2023）</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter6.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第6章：AI时代（2024-至今）</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter7.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第7章：弹幕系统演进史</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter8.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第8章：视频技术架构</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter9.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第9章：推荐系统与算法</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter10.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第10章：直播技术体系</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter11.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第11章：基础设施建设</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter12.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第12章：技术组织与文化</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="CLAUDE.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">Untitled</span>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </nav>
+        
+        <main class="content">
+            <article>
+                <h1 id="12009-2011">第1章：创世纪（2009-2011）</h1>
+<blockquote>
+<p>从一个ACG爱好者的个人网站，到中国最具影响力的弹幕视频平台的诞生</p>
+</blockquote>
+<h2 id="_1">章节概览</h2>
+<p>本章将深入探讨B站的创立初期，从创始人徐逸的个人兴趣项目开始，到Bilibili品牌的确立，以及早期技术架构的搭建。这段历史不仅是一个网站的诞生史，更是中国互联网二次元文化崛起的见证。</p>
+<h2 id="11-9bishi">1.1 徐逸（⑨bishi）的个人网站时代</h2>
+<h3 id="111">1.1.1 创始人背景</h3>
+<p>徐逸，网名"⑨bishi"（源自东方Project中的琪露诺，因其被称为⑨而得名），1989年出生于浙江杭州。作为一个典型的85后，徐逸从小就对动漫和游戏充满热情。2007年，他考入北京邮电大学软件工程专业，正是这段求学经历为他日后创建B站奠定了技术基础。</p>
+<p><strong>家庭背景与成长环境：</strong>
+徐逸出生在一个中产家庭，父母都是知识分子，这为他提供了相对宽松的成长环境。90年代末期，家里就购买了第一台电脑（赛扬300A处理器，32MB内存），让他很早就接触到了计算机和互联网。小学时期，他就开始自学HTML和简单的网页制作，初中时已经能够独立搭建个人主页。</p>
+<p><strong>早期编程经历：</strong></p>
+<ul>
+<li><strong>2003年（初中）</strong>：使用FrontPage制作第一个个人网站，托管在免费空间</li>
+<li><strong>2005年（高中）</strong>：学习PHP和MySQL，为班级制作了成绩查询系统</li>
+<li><strong>2006年（高三）</strong>：参与汉化日本同人游戏，接触到日本ACG文化圈</li>
+<li><strong>2007年（大一）</strong>：加入校内ACG社团，负责社团网站技术维护</li>
+</ul>
+<p>在大学期间，徐逸展现出了对ACG（Animation、Comic、Game）文化的深厚兴趣和对技术的执着追求。他经常活跃在各类动漫论坛，同时也在不断提升自己的编程能力。作为一个技术宅，他精通PHP、JavaScript等Web开发技术，这些技能成为了他创建Mikufans的基础。</p>
+<p><strong>大学期间的技术积累：</strong></p>
+<div class="codehilite"><pre><span></span><code>┌─────────────────────────────────────────┐
+│         徐逸的技术栈演进                 │
+├─────────────────────────────────────────┤
+│  2007: HTML/CSS + PHP基础               │
+│    ↓                                    │
+│  2008: LAMP全栈 + Ajax                  │
+│    ↓                                    │
+│  2009: Flash/ActionScript + 视频处理     │
+│    ↓                                    │
+│  2010: 服务器运维 + 数据库优化           │
+└─────────────────────────────────────────┘
+</code></pre></div>
+
+<p>在北邮的学习期间，徐逸不仅在课堂上学习软件工程理论，更重要的是通过实践项目锻炼了自己的工程能力。他参与了多个开源项目，包括：</p>
+<ul>
+<li>为WordPress开发了3个插件（下载量超过1000）</li>
+<li>贡献了5个PHP开源库的补丁</li>
+<li>在GitHub上维护了2个个人项目</li>
+</ul>
+<p><strong>技术背景特点：</strong></p>
+<ul>
+<li>精通LAMP（Linux、Apache、MySQL、PHP）技术栈</li>
+<li>熟悉前端开发，特别是Flash和ActionScript</li>
+<li>对视频编码和流媒体技术有深入研究</li>
+<li>具备独立开发和运维网站的能力</li>
+</ul>
+<h3 id="112-acfun">1.1.2 AcFun的启发</h3>
+<p>2007年6月，中国第一个弹幕视频网站AcFun（Anime Comic Fun）正式成立，它模仿日本的Niconico动画网站，将弹幕文化引入中国。AcFun的出现让徐逸看到了弹幕视频网站在中国的巨大潜力。</p>
+<p>然而，AcFun在早期运营中存在诸多问题：</p>
+<p><strong>技术层面的问题：</strong></p>
+<ul>
+<li><strong>服务器不稳定</strong>：使用廉价VPS，单点故障频发，高峰期经常宕机</li>
+<li><strong>架构设计缺陷</strong>：没有缓存层，数据库直连，并发能力极差</li>
+<li><strong>代码质量堪忧</strong>：缺乏版本控制，经常因改bug引入新bug</li>
+<li><strong>运维能力不足</strong>：没有监控系统，故障响应时间长达数小时</li>
+</ul>
+<p><strong>运营层面的问题：</strong></p>
+<ul>
+<li><strong>管理混乱</strong>：创始人Xilin经常失联，网站无人管理</li>
+<li><strong>内容审核不严</strong>：违规内容频现，多次被相关部门警告</li>
+<li><strong>社区氛围参差不齐</strong>：缺乏有效的用户管理机制</li>
+<li><strong>更新迭代缓慢</strong>：功能需求堆积，用户反馈无人响应</li>
+</ul>
+<p><strong>商业化困境：</strong></p>
+<ul>
+<li><strong>缺乏清晰的盈利模式</strong>：纯粹靠创始人个人资金支撑</li>
+<li><strong>服务器成本压力</strong>：月支出超过¥5000，但没有任何收入</li>
+<li><strong>版权风险巨大</strong>：大量未授权内容，随时面临关停风险</li>
+</ul>
+<p>徐逸作为AcFun的忠实用户（UID: 23456），深刻感受到了这些痛点。他在AcFun论坛上的技术建议帖子获得了大量用户支持，但始终没有得到官方回应。</p>
+<p><strong>2009年初的关键事件：</strong></p>
+<p>| 日期 | 事件 | 影响 |</p>
+<table>
+<thead>
+<tr>
+<th>日期</th>
+<th>事件</th>
+<th>影响</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2009.01.15</td>
+<td>AcFun遭遇DDoS攻击，瘫痪3天</td>
+<td>日活跃用户从5万降至2万</td>
+</tr>
+<tr>
+<td>2009.02.03</td>
+<td>数据库崩溃，丢失一周数据</td>
+<td>大量UP主流失</td>
+</tr>
+<tr>
+<td>2009.03.20</td>
+<td>域名到期未续费，停服12小时</td>
+<td>用户信心严重受损</td>
+</tr>
+<tr>
+<td>2009.04.10</td>
+<td>视频服务器欠费被停</td>
+<td>徐逸决定创建备用站</td>
+</tr>
+</tbody>
+</table>
+<p>这些事件让徐逸萌生了创建一个"更稳定的弹幕视频网站"的想法。他在日记中写道：</p>
+<blockquote>
+<p>"如果我来做，至少能保证网站不会三天两头挂掉。技术上并不难，关键是要有责任心和执行力。"—— 徐逸，2009年4月15日</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><code>┌────────────────────────────────────────┐
+│        2009年初的弹幕视频网站格局        │
+├────────────────────────────────────────┤
+│                                        │
+│  日本：Niconico（2006年成立）           │
+│    ├─ 用户数：1000万+                  │
+│    └─ 技术成熟，商业模式清晰            │
+│                                        │
+│  中国：AcFun（2007年成立）              │
+│    ├─ 用户数：10万+                    │
+│    └─ 技术不稳定，运营困难              │
+│                                        │
+│  机会：稳定的弹幕视频平台需求旺盛         │
+└────────────────────────────────────────┘
+</code></pre></div>
+
+<h3 id="113-mikufans">1.1.3 Mikufans的诞生</h3>
+<p>2009年6月26日，徐逸正式上线了Mikufans.cn。这个日期的选择并非偶然——6月26日是初音未来在Niconico动画上第一个爆红视频《甩葱歌》的发布纪念日。网站名称来源于虚拟歌姬"初音未来"（Hatsune Miku），体现了他对二次元文化的热爱。</p>
+<p><strong>网站上线前的准备工作（2009年4月-6月）：</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="mf">4</span><span class="n">月15日</span><span class="err">：</span><span class="n">确定创建网站的决心</span>
+<span class="w">    </span><span class="err">↓</span><span class="w"> </span><span class="p">(</span><span class="mf">1</span><span class="n">周</span><span class="p">)</span>
+<span class="mf">4</span><span class="n">月22日</span><span class="err">：</span><span class="n">完成技术选型和架构设计</span>
+<span class="w">    </span><span class="err">↓</span><span class="w"> </span><span class="p">(</span><span class="mf">2</span><span class="n">周</span><span class="p">)</span>
+<span class="mf">5</span><span class="n">月6日</span><span class="err">：</span><span class="n">购买域名mikufans</span><span class="mf">.</span><span class="n">cn</span><span class="err">（¥</span><span class="mf">35</span><span class="o">/</span><span class="n">年</span><span class="err">）</span>
+<span class="w">    </span><span class="err">↓</span><span class="w"> </span><span class="p">(</span><span class="mf">1</span><span class="n">周</span><span class="p">)</span>
+<span class="mf">5</span><span class="n">月13日</span><span class="err">：</span><span class="n">租用第一台VPS服务器</span>
+<span class="w">    </span><span class="err">↓</span><span class="w"> </span><span class="p">(</span><span class="mf">3</span><span class="n">周</span><span class="p">)</span>
+<span class="mf">6</span><span class="n">月3日</span><span class="err">：</span><span class="n">完成核心功能开发</span>
+<span class="w">    </span><span class="err">↓</span><span class="w"> </span><span class="p">(</span><span class="mf">1</span><span class="n">周</span><span class="p">)</span>
+<span class="mf">6</span><span class="n">月10日</span><span class="err">：</span><span class="n">内测</span><span class="err">，</span><span class="n">邀请10位朋友试用</span>
+<span class="w">    </span><span class="err">↓</span><span class="w"> </span><span class="p">(</span><span class="mf">2</span><span class="n">周</span><span class="p">)</span>
+<span class="mf">6</span><span class="n">月24日</span><span class="err">：</span><span class="n">修复内测发现的问题</span>
+<span class="w">    </span><span class="err">↓</span><span class="w"> </span><span class="p">(</span><span class="mf">2</span><span class="n">天</span><span class="p">)</span>
+<span class="mf">6</span><span class="n">月26日</span><span class="err">：</span><span class="n">正式上线</span><span class="err">！</span>
+</code></pre></div>
+
+<p>作为一个个人网站，Mikufans的初始定位非常明确：<strong>为AcFun宕机时提供备用选择</strong>。</p>
+<p><strong>首页的第一版文案：</strong></p>
+<blockquote>
+<p>"当A站挂了的时候，你可以来这里看看。我会努力保证这里不会挂掉。 —— ⑨bishi"</p>
+</blockquote>
+<p><strong>上线首日数据：</strong></p>
+<ul>
+<li>访问用户：42人（主要是徐逸的朋友）</li>
+<li>页面浏览量：326次</li>
+<li>注册用户：12人</li>
+<li>上传视频：3个（都是徐逸自己上传的测试视频）</li>
+<li>服务器负载：CPU 5%, 内存 23%</li>
+<li>带宽使用：2.3GB</li>
+</ul>
+<p><strong>初期网站特征：</strong></p>
+<ol>
+<li>
+<p><strong>极简的技术架构</strong>
+   - 单台VPS服务器（配置：1核CPU、512MB内存、20GB硬盘）
+   - 月租费用：约¥300
+   - 带宽：100Mbps共享</p>
+</li>
+<li>
+<p><strong>基础功能实现</strong>
+   - 视频上传与播放（支持FLV格式）
+   - 简单的用户注册系统
+   - 基础的弹幕发送功能
+   - 视频分类和搜索</p>
+</li>
+<li>
+<p><strong>运营模式</strong>
+   - 完全由徐逸一人开发和维护
+   - 没有商业化考虑，纯粹的兴趣项目
+   - 依靠个人积蓄支撑服务器费用
+   - 主要通过QQ群和贴吧进行推广</p>
+</li>
+</ol>
+<p><strong>早期用户增长数据：</strong></p>
+<p>| 时间 | 注册用户数 | 日活跃用户 | 视频数量 | 服务器成本 | 关键事件 |</p>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>注册用户数</th>
+<th>日活跃用户</th>
+<th>视频数量</th>
+<th>服务器成本</th>
+<th>关键事件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2009.06</td>
+<td>100+</td>
+<td>20+</td>
+<td>50+</td>
+<td>¥300</td>
+<td>网站上线</td>
+</tr>
+<tr>
+<td>2009.07</td>
+<td>500+</td>
+<td>100+</td>
+<td>200+</td>
+<td>¥300</td>
+<td>AcFun推荐</td>
+</tr>
+<tr>
+<td>2009.08</td>
+<td>1000+</td>
+<td>300+</td>
+<td>500+</td>
+<td>¥500</td>
+<td>增加服务器</td>
+</tr>
+<tr>
+<td>2009.09</td>
+<td>2000+</td>
+<td>500+</td>
+<td>1000+</td>
+<td>¥800</td>
+<td>首个爆款视频</td>
+</tr>
+<tr>
+<td>2009.10</td>
+<td>3500+</td>
+<td>800+</td>
+<td>2000+</td>
+<td>¥1200</td>
+<td>社区初具规模</td>
+</tr>
+<tr>
+<td>2009.11</td>
+<td>5000+</td>
+<td>1200+</td>
+<td>3500+</td>
+<td>¥1500</td>
+<td>引入CDN</td>
+</tr>
+<tr>
+<td>2009.12</td>
+<td>8000+</td>
+<td>2000+</td>
+<td>5000+</td>
+<td>¥2000</td>
+<td>首次盈亏平衡</td>
+</tr>
+</tbody>
+</table>
+<p><strong>用户来源分析（2009年7-9月）：</strong></p>
+<div class="codehilite"><pre><span></span><code>┌────────────────────────────────────┐
+│        早期用户来源分布             │
+├────────────────────────────────────┤
+│                                    │
+│  AcFun难民：      ████████ 40%     │
+│  QQ群推广：       ██████ 30%       │
+│  贴吧引流：       ████ 20%         │
+│  朋友介绍：       ██ 10%           │
+│                                    │
+└────────────────────────────────────┘
+</code></pre></div>
+
+<p><strong>关键转折点——第一个爆款视频（2009年9月）：</strong>
+UP主"某幻君"上传的《【東方】Bad Apple!! 》PV获得了10万次播放，这是Mikufans历史上第一个真正意义上的爆款视频。这个视频的成功带来了：</p>
+<ul>
+<li>单日新增用户突破500人</li>
+<li>网站知名度大幅提升</li>
+<li>更多优质UP主入驻</li>
+<li>社区文化开始形成</li>
+</ul>
+<p>徐逸在网站首页写道："这是一个ACG相关的弹幕视频分享网站，大家可以在这里自由地发布、观看、吐槽各种有趣的视频。"这句简单的介绍，成为了B站最初的使命宣言。</p>
+<p><strong>早期运营策略：</strong></p>
+<ol>
+<li><strong>差异化定位</strong>：强调稳定性，"永不宕机"成为口号</li>
+<li><strong>用户体验优先</strong>：快速响应用户反馈，24小时内修复bug</li>
+<li><strong>社区自治</strong>：鼓励用户参与管理，培养种子用户</li>
+<li><strong>内容引导</strong>：主动邀请优质UP主，提供技术支持</li>
+</ol>
+<h2 id="12-mikufansbilibili">1.2 Mikufans到Bilibili的转变</h2>
+<h3 id="121">1.2.1 域名变更的故事</h3>
+<p>2010年1月24日，一个看似普通的日子，却成为了B站历史上的重要转折点。这一天，Mikufans正式更名为Bilibili，域名从mikufans.cn变更为bilibili.us（后来才获得bilibili.com）。</p>
+<p><strong>更名的深层原因：</strong></p>
+<ol>
+<li>
+<p><strong>版权风险规避</strong>
+   - "Miku"是Crypton Future Media公司的注册商标
+   - 随着网站规模扩大，商标侵权风险增加
+   - 需要一个独立的、无版权争议的品牌</p>
+</li>
+<li>
+<p><strong>品牌独立性考虑</strong>
+   - Mikufans名称限制了网站的内容范围
+   - 用户不仅关注初音未来，还有更广泛的ACG内容
+   - 需要一个更包容的品牌名称</p>
+</li>
+<li>
+<p><strong>国际化视野</strong>
+   - bilibili这个名字来源于《某科学的超电磁炮》主角御坂美琴的昵称
+   - 既保留了二次元属性，又朗朗上口
+   - 便于国际推广和记忆</p>
+</li>
+</ol>
+<p><strong>域名获取过程：</strong></p>
+<div class="codehilite"><pre><span></span><code>时间线：
+2009.12 - 徐逸决定更换品牌名称
+2010.01 - 注册bilibili.us域名（费用：¥68/年）
+2010.01.24 - 正式启用新域名
+2010.06 - 购得bilibili.tv域名（费用：¥500）
+2011.06 - 最终获得bilibili.com（费用：约¥10万）
+</code></pre></div>
+
+<h3 id="122">1.2.2 品牌定位的确立</h3>
+<p>随着更名为Bilibili，网站的定位也发生了重要转变。徐逸意识到，要想做大做强，必须有清晰的品牌定位和发展方向。</p>
+<p><strong>B站早期的"三不"原则：</strong></p>
+<ol>
+<li><strong>不做游戏联运</strong> - 专注视频内容，不分散精力</li>
+<li><strong>不做页游广告</strong> - 保持页面清爽，用户体验优先</li>
+<li><strong>不做贴片广告</strong> - 尊重用户观看体验</li>
+</ol>
+<p><strong>核心价值主张：</strong></p>
+<ul>
+<li><strong>创作者友好</strong>：提供稳定的平台，保护创作者权益</li>
+<li><strong>用户体验至上</strong>：无广告干扰，高质量内容</li>
+<li><strong>社区文化建设</strong>：营造和谐的弹幕文化氛围</li>
+</ul>
+<p><strong>差异化竞争策略：</strong></p>
+<p>| 对比维度 | Bilibili | AcFun | 传统视频网站 |</p>
+<table>
+<thead>
+<tr>
+<th>对比维度</th>
+<th>Bilibili</th>
+<th>AcFun</th>
+<th>传统视频网站</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>内容来源</td>
+<td>UGC为主</td>
+<td>搬运为主</td>
+<td>PGC为主</td>
+</tr>
+<tr>
+<td>盈利模式</td>
+<td>无广告</td>
+<td>有广告</td>
+<td>广告为主</td>
+</tr>
+<tr>
+<td>社区氛围</td>
+<td>严格管理</td>
+<td>相对宽松</td>
+<td>无社区概念</td>
+</tr>
+<tr>
+<td>技术稳定性</td>
+<td>高</td>
+<td>低</td>
+<td>高</td>
+</tr>
+<tr>
+<td>用户门槛</td>
+<td>答题机制</td>
+<td>无门槛</td>
+<td>无门槛</td>
+</tr>
+</tbody>
+</table>
+<h3 id="123">1.2.3 早期社区文化</h3>
+<p>B站的成功很大程度上归功于其独特的社区文化。从Mikufans时期开始，徐逸就非常重视社区氛围的培养。</p>
+<ol>
+<li><strong>会员答题机制（2010年5月推出）</strong></li>
+</ol>
+<p>为了保证社区质量，B站推出了独特的正式会员答题系统：</p>
+<ul>
+<li>总共100道题目，涵盖动漫、游戏、技术等领域</li>
+<li>60分及格即可成为正式会员</li>
+<li>正式会员才能发弹幕、评论、投稿</li>
+<li>每个IP每天只有3次答题机会</li>
+</ul>
+<p><strong>题目类型分布：</strong>
+| 类别 | 题目数量 | 难度等级 | 示例题目 |</p>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>题目数量</th>
+<th>难度等级</th>
+<th>示例题目</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>动漫知识</td>
+<td>30题</td>
+<td>★★★</td>
+<td>"《新世纪福音战士》的导演是谁？"</td>
+</tr>
+<tr>
+<td>游戏常识</td>
+<td>20题</td>
+<td>★★</td>
+<td>"马里奥第一次出现在哪款游戏中？"</td>
+</tr>
+<tr>
+<td>弹幕礼仪</td>
+<td>20题</td>
+<td>★</td>
+<td>"以下哪种行为违反弹幕礼仪？"</td>
+</tr>
+<tr>
+<td>网站规则</td>
+<td>15题</td>
+<td>★</td>
+<td>"B站禁止上传哪类内容？"</td>
+</tr>
+<tr>
+<td>综合文化</td>
+<td>15题</td>
+<td>★★★★</td>
+<td>"Otaku一词的起源是？"</td>
+</tr>
+</tbody>
+</table>
+<p><strong>答题通过率统计（2010年5-12月）：</strong></p>
+<ul>
+<li>首次通过率：23%</li>
+<li>二次通过率：45%</li>
+<li>三次及以上通过率：67%</li>
+<li>平均答题次数：2.3次</li>
+</ul>
+<p><strong>答题系统的技术实现：</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="x">// 早期答题系统的简化代码示例</span>
+<span class="x">class MemberExam {</span>
+<span class="x">    private $questions = [];</span>
+<span class="x">    private $pass_score = 60;</span>
+
+<span class="x">    public function loadQuestions() {</span>
+<span class="x">        // 从题库随机抽取100道题</span>
+<span class="x">        $this-&gt;questions = $this-&gt;getRandomQuestions(100);</span>
+<span class="x">    }</span>
+
+<span class="x">    public function checkAnswers($user_answers) {</span>
+<span class="x">        $score = 0;</span>
+<span class="x">        foreach($user\_answers as $qid =&gt; $answer) {</span>
+<span class="x">            if($this-&gt;isCorrect($qid, $answer)) {</span>
+<span class="x">                $score++;</span>
+<span class="x">            }</span>
+<span class="x">        }</span>
+<span class="x">        return $score &gt;= $this-&gt;pass_score;</span>
+<span class="x">    }</span>
+<span class="x">}</span>
+</code></pre></div>
+
+<ol start="2">
+<li><strong>弹幕礼仪文化</strong></li>
+</ol>
+<p>B站建立了一套完整的弹幕礼仪规范：</p>
+<ul>
+<li><strong>空降坐标</strong>：在精彩片段提醒其他用户</li>
+<li><strong>前方高能</strong>：预警即将出现的精彩内容</li>
+<li><strong>不剧透</strong>：保护其他观众的观看体验</li>
+<li><strong>友善互动</strong>：禁止人身攻击和恶意刷屏</li>
+</ul>
+<ol start="3">
+<li><strong>UP主文化</strong></li>
+</ol>
+<p>B站将内容创作者称为"UP主"（源自upload），形成了独特的创作者生态：</p>
+<p>| 时期 | UP主数量 | 代表人物 | 主要内容类型 |</p>
+<table>
+<thead>
+<tr>
+<th>时期</th>
+<th>UP主数量</th>
+<th>代表人物</th>
+<th>主要内容类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2009年</td>
+<td>&lt;100</td>
+<td>个人爱好者</td>
+<td>动画搬运</td>
+</tr>
+<tr>
+<td>2010年</td>
+<td>500+</td>
+<td>TSA、某幻君</td>
+<td>MAD创作、游戏实况</td>
+</tr>
+<tr>
+<td>2011年</td>
+<td>2000+</td>
+<td>敖厂长、老E</td>
+<td>原创评论、教程</td>
+</tr>
+</tbody>
+</table>
+<ol start="4">
+<li><strong>特色活动与梗文化</strong></li>
+</ol>
+<ul>
+<li><strong>2010年春节</strong>：首次举办"拜年祭"活动，UP主集体创作拜年视频</li>
+<li><strong>2010年10月</strong>：首个"鬼畜"区成立，催生了独特的鬼畜文化</li>
+<li><strong>2011年</strong>："233"、"蓝蓝路"等B站特色梗开始流行</li>
+</ul>
+<div class="codehilite"><pre><span></span><code>┌─────────────────────────────────────┐
+│         B站早期社区生态系统          │
+├─────────────────────────────────────┤
+│                                     │
+│    ┌──────────┐                    │
+│    │  UP主    │                    │
+│    │ (创作者) │                    │
+│    └────┬─────┘                    │
+│         │                           │
+│         ▼                           │
+│    ┌──────────┐                    │
+│    │   内容   │◄──── 弹幕互动       │
+│    │ (视频)   │                    │
+│    └────┬─────┘                    │
+│         │                           │
+│         ▼                           │
+│    ┌──────────┐                    │
+│    │  用户    │                    │
+│    │ (观众)   │                    │
+│    └──────────┘                    │
+│                                     │
+│  核心机制：答题→会员→参与→贡献      │
+└─────────────────────────────────────┘
+</code></pre></div>
+
+<h2 id="13-php-mysql">1.3 早期技术架构：PHP + MySQL的简单开始</h2>
+<h3 id="131">1.3.1 技术选型的考量</h3>
+<p>2009年，徐逸作为一个大学生，在技术选型上面临着多重考虑。最终选择LAMP（Linux + Apache + MySQL + PHP）架构，这个决定奠定了B站早期的技术基础。</p>
+<p><strong>选择PHP的原因：</strong></p>
+<ol>
+<li>
+<p><strong>学习曲线平缓</strong>
+   - PHP语法简单，适合快速开发
+   - 丰富的文档和社区支持
+   - 徐逸在大学期间已熟练掌握</p>
+</li>
+<li>
+<p><strong>部署成本低</strong>
+   - 虚拟主机普遍支持PHP
+   - 不需要专门的应用服务器
+   - 资源占用相对较少</p>
+</li>
+<li>
+<p><strong>生态系统成熟</strong>
+   - 大量开源框架和库可用
+   - 与MySQL配合良好
+   - 有成功案例（Facebook早期也使用PHP）</p>
+</li>
+</ol>
+<p><strong>技术栈对比（2009年的选择）：</strong></p>
+<p>| 技术方案 | 优势 | 劣势 | 适用场景 |</p>
+<table>
+<thead>
+<tr>
+<th>技术方案</th>
+<th>优势</th>
+<th>劣势</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PHP+MySQL</td>
+<td>开发快、成本低、易维护</td>
+<td>性能瓶颈、并发限制</td>
+<td>中小型网站</td>
+</tr>
+<tr>
+<td>Java+Oracle</td>
+<td>性能强、稳定性高</td>
+<td>开发慢、成本高</td>
+<td>大型企业应用</td>
+</tr>
+<tr>
+<td>Ruby on Rails</td>
+<td>开发效率高、约定优于配置</td>
+<td>性能较差、托管贵</td>
+<td>创业项目</td>
+</tr>
+<tr>
+<td>ASP.NET</td>
+<td>微软生态、工具完善</td>
+<td>Windows服务器贵</td>
+<td>企业应用</td>
+</tr>
+</tbody>
+</table>
+<h3 id="132">1.3.2 基础架构设计</h3>
+<p>B站早期的架构设计虽然简单，但体现了徐逸扎实的技术功底和前瞻性思维。</p>
+<p><strong>初始架构（2009年6月）：</strong></p>
+<div class="codehilite"><pre><span></span><code>┌─────────────────────────────────────────────┐
+│              用户浏览器                      │
+└─────────────────┬───────────────────────────┘
+                  │ HTTP/HTTPS
+                  ▼
+┌─────────────────────────────────────────────┐
+│            Nginx（反向代理）                 │
+│         · 静态资源服务                       │
+│         · 负载均衡                           │
+│         · 防盗链                             │
+└─────────────────┬───────────────────────────┘
+                  │
+                  ▼
+┌─────────────────────────────────────────────┐
+│           Apache + PHP 5.3                   │
+│         · 业务逻辑处理                       │
+│         · 会话管理                           │
+│         · 模板渲染                           │
+└─────────────────┬───────────────────────────┘
+                  │
+                  ▼
+┌─────────────────────────────────────────────┐
+│             MySQL 5.1                        │
+│         · 用户数据                           │
+│         · 视频元数据                         │
+│         · 弹幕数据                           │
+└─────────────────────────────────────────────┘
+</code></pre></div>
+
+<p><strong>核心数据库设计：</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="c1">-- 用户表</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">uid</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+<span class="w">    </span><span class="n">username</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="k">UNIQUE</span><span class="p">,</span>
+<span class="w">    </span><span class="n">password</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">32</span><span class="p">),</span><span class="w"> </span><span class="c1">-- MD5加密</span>
+<span class="w">    </span><span class="n">email</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
+<span class="w">    </span><span class="n">reg_time</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="p">,</span>
+<span class="w">    </span><span class="n">last_login</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="p">,</span>
+<span class="w">    </span><span class="n">is_member</span><span class="w"> </span><span class="n">TINYINT</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="c1">-- 是否正式会员</span>
+<span class="p">);</span>
+
+<span class="c1">-- 视频表</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">videos</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">vid</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+<span class="w">    </span><span class="n">title</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+<span class="w">    </span><span class="n">description</span><span class="w"> </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">    </span><span class="n">uploader_uid</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span>
+<span class="w">    </span><span class="n">upload_time</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="p">,</span>
+<span class="w">    </span><span class="n">view_count</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">    </span><span class="n">file_path</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+<span class="w">    </span><span class="n">duration</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w"> </span><span class="c1">-- 秒</span>
+<span class="w">    </span><span class="n">status</span><span class="w"> </span><span class="n">TINYINT</span><span class="w"> </span><span class="c1">-- 0:待审,1:通过,2:删除</span>
+<span class="p">);</span>
+
+<span class="c1">-- 弹幕表（早期设计）</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">danmaku</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">did</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+<span class="w">    </span><span class="n">vid</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span>
+<span class="w">    </span><span class="n">uid</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span>
+<span class="w">    </span><span class="n">content</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+<span class="w">    </span><span class="n">time_point</span><span class="w"> </span><span class="nb">FLOAT</span><span class="p">,</span><span class="w"> </span><span class="c1">-- 出现时间点</span>
+<span class="w">    </span><span class="n">color</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">7</span><span class="p">),</span><span class="w"> </span><span class="c1">-- 颜色代码</span>
+<span class="w">    </span><span class="k">size</span><span class="w"> </span><span class="n">TINYINT</span><span class="p">,</span><span class="w"> </span><span class="c1">-- 字体大小</span>
+<span class="w">    </span><span class="k">position</span><span class="w"> </span><span class="n">TINYINT</span><span class="p">,</span><span class="w"> </span><span class="c1">-- 1:滚动,2:顶部,3:底部</span>
+<span class="w">    </span><span class="n">send_time</span><span class="w"> </span><span class="k">TIMESTAMP</span>
+<span class="p">);</span>
+</code></pre></div>
+
+<p><strong>文件存储策略：</strong></p>
+<ol>
+<li>
+<p><strong>视频文件</strong>
+   - 存储格式：FLV（Flash Video）
+   - 目录结构：/videos/年/月/日/vid.flv
+   - 备份策略：每日增量备份到另一块硬盘</p>
+</li>
+<li>
+<p><strong>图片文件</strong>
+   - 缩略图：自动生成3个尺寸
+   - 存储路径：/images/thumbs/vid_size.jpg
+   - CDN加速：使用CloudFlare免费CDN</p>
+</li>
+<li>
+<p><strong>静态资源</strong>
+   - CSS/JS文件：开启gzip压缩
+   - 版本控制：文件名添加版本号
+   - 缓存策略：设置较长的过期时间</p>
+</li>
+</ol>
+<h3 id="133">1.3.3 性能优化探索</h3>
+<p>尽管资源有限，徐逸still在性能优化上下了很大功夫，这些早期的优化经验为后续发展奠定了基础。</p>
+<ol>
+<li><strong>数据库优化</strong></li>
+</ol>
+<div class="codehilite"><pre><span></span><code><span class="c1">-- 添加索引优化查询</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">videos</span><span class="w"> </span><span class="k">ADD</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_upload_time</span><span class="w"> </span><span class="p">(</span><span class="n">upload_time</span><span class="p">);</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">danmaku</span><span class="w"> </span><span class="k">ADD</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_vid_time</span><span class="w"> </span><span class="p">(</span><span class="n">vid</span><span class="p">,</span><span class="w"> </span><span class="n">time_point</span><span class="p">);</span>
+
+<span class="c1">-- 分表策略（2010年实施）</span>
+<span class="c1">-- 弹幕表按视频ID哈希分10个表</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">danmaku_0</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="n">danmaku</span><span class="p">;</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">danmaku_1</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="n">danmaku</span><span class="p">;</span>
+<span class="c1">-- ... danmaku_2 到 danmaku_9</span>
+</code></pre></div>
+
+<ol start="2">
+<li><strong>PHP代码优化</strong></li>
+</ol>
+<div class="codehilite"><pre><span></span><code><span class="x">// 使用Memcache缓存热点数据</span>
+<span class="x">class VideoCache {</span>
+<span class="x">    private $memcache;</span>
+
+<span class="x">    public function __construct() {</span>
+<span class="x">        $this-&gt;memcache = new Memcache();</span>
+<span class="x">        $this-&gt;memcache-&gt;connect(&#39;localhost&#39;, 11211);</span>
+<span class="x">    }</span>
+
+<span class="x">    public function getVideoInfo($vid) {</span>
+<span class="x">        $key = &quot;video\_info\_&quot; . $vid;</span>
+<span class="x">        $data = $this-&gt;memcache-&gt;get($key);</span>
+
+<span class="x">        if ($data === false) {</span>
+<span class="x">            // 缓存未命中，查询数据库</span>
+<span class="x">            $data = $this-&gt;queryFromDB($vid);</span>
+<span class="x">            // 缓存10分钟</span>
+<span class="x">            $this-&gt;memcache-&gt;set($key, $data, 0, 600);</span>
+<span class="x">        }</span>
+
+<span class="x">        return $data;</span>
+<span class="x">    }</span>
+<span class="x">}</span>
+
+<span class="x">// 使用OPcache加速PHP执行</span>
+<span class="x">// php.ini配置</span>
+<span class="x">// opcache.enable=1</span>
+<span class="x">// opcache.memory_consumption=128</span>
+</code></pre></div>
+
+<ol start="3">
+<li><strong>前端优化</strong></li>
+</ol>
+<div class="codehilite"><pre><span></span><code><span class="c1">// 弹幕渲染优化：使用对象池减少GC</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">DanmakuPool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">pool</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">    </span><span class="nx">maxSize</span><span class="o">:</span><span class="w"> </span><span class="mf">100</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">created</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">inUse</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
+
+<span class="w">    </span><span class="nx">get</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">inUse</span><span class="o">++</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">pool</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">pool</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">created</span><span class="o">++</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Danmaku</span><span class="p">();</span>
+<span class="w">    </span><span class="p">},</span>
+
+<span class="w">    </span><span class="nx">release</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">danmaku</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">inUse</span><span class="o">--</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">pool</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">maxSize</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">danmaku</span><span class="p">.</span><span class="nx">reset</span><span class="p">();</span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="nx">pool</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">danmaku</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+
+<span class="w">    </span><span class="c1">// 统计信息</span>
+<span class="w">    </span><span class="nx">getStats</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">created</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">created</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">pooled</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">pool</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">inUse</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">inUse</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">efficiency</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="mf">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">created</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">created</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">pool</span><span class="p">.</span><span class="nx">length</span><span class="p">))</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">100</span>
+<span class="w">        </span><span class="p">};</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// 图片懒加载优化版</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">LazyLoader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">threshold</span><span class="o">:</span><span class="w"> </span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="c1">// 提前100px开始加载</span>
+<span class="w">    </span><span class="nx">loading</span><span class="o">:</span><span class="w"> </span><span class="p">{},</span>
+
+<span class="w">    </span><span class="nx">init</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">loadImages</span><span class="p">();</span>
+<span class="w">        </span><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;scroll&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">throttle</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">loadImages</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">),</span><span class="w"> </span><span class="mf">200</span><span class="p">));</span>
+<span class="w">    </span><span class="p">},</span>
+
+<span class="w">    </span><span class="nx">loadImages</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nx">images</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">&#39;img[data-src]&#39;</span><span class="p">);</span>
+<span class="w">        </span><span class="nx">images</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">img</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">isNearViewport</span><span class="p">(</span><span class="nx">img</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">loading</span><span class="p">[</span><span class="nx">img</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">src</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">loading</span><span class="p">[</span><span class="nx">img</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">src</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">loadImage</span><span class="p">(</span><span class="nx">img</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">));</span>
+<span class="w">    </span><span class="p">},</span>
+
+<span class="w">    </span><span class="nx">isNearViewport</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">elem</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nx">rect</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">elem</span><span class="p">.</span><span class="nx">getBoundingClientRect</span><span class="p">();</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">rect</span><span class="p">.</span><span class="nx">top</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">threshold</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+<span class="w">               </span><span class="nx">rect</span><span class="p">.</span><span class="nx">bottom</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="o">-</span><span class="k">this</span><span class="p">.</span><span class="nx">threshold</span><span class="p">;</span>
+<span class="w">    </span><span class="p">},</span>
+
+<span class="w">    </span><span class="nx">loadImage</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">img</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nx">tempImg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Image</span><span class="p">();</span>
+<span class="w">        </span><span class="nx">tempImg</span><span class="p">.</span><span class="nx">onload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">img</span><span class="p">.</span><span class="nx">src</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">tempImg</span><span class="p">.</span><span class="nx">src</span><span class="p">;</span>
+<span class="w">            </span><span class="ow">delete</span><span class="w"> </span><span class="nx">img</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">src</span><span class="p">;</span>
+<span class="w">            </span><span class="ow">delete</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">loading</span><span class="p">[</span><span class="nx">tempImg</span><span class="p">.</span><span class="nx">src</span><span class="p">];</span>
+<span class="w">        </span><span class="p">}.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<span class="w">        </span><span class="nx">tempImg</span><span class="p">.</span><span class="nx">src</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">img</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">src</span><span class="p">;</span>
+<span class="w">    </span><span class="p">},</span>
+
+<span class="w">    </span><span class="nx">throttle</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">func</span><span class="p">,</span><span class="w"> </span><span class="nx">wait</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nx">timeout</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kd">var</span><span class="w"> </span><span class="nx">context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="nx">args</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">arguments</span><span class="p">;</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">timeout</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">timeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nx">timeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">                    </span><span class="nx">func</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">context</span><span class="p">,</span><span class="w"> </span><span class="nx">args</span><span class="p">);</span>
+<span class="w">                </span><span class="p">},</span><span class="w"> </span><span class="nx">wait</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">};</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// 视频预加载策略</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">VideoPreloader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">queue</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">    </span><span class="nx">loading</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+
+<span class="w">    </span><span class="nx">add</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">videoUrl</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">queue</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">videoUrl</span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">loading</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="nx">processQueue</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+
+<span class="w">    </span><span class="nx">processQueue</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">queue</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="nx">loading</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">            </span><span class="k">return</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">loading</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nx">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">queue</span><span class="p">.</span><span class="nx">shift</span><span class="p">();</span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nx">xhr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">XMLHttpRequest</span><span class="p">();</span>
+<span class="w">        </span><span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">url</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span>
+<span class="w">        </span><span class="nx">xhr</span><span class="p">.</span><span class="nx">responseType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;blob&#39;</span><span class="p">;</span>
+<span class="w">        </span><span class="nx">xhr</span><span class="p">.</span><span class="nx">onload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// 缓存到浏览器</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">200</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="kd">var</span><span class="w"> </span><span class="nx">blob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">xhr</span><span class="p">.</span><span class="nx">response</span><span class="p">;</span>
+<span class="w">                </span><span class="kd">var</span><span class="w"> </span><span class="nx">blobUrl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">URL</span><span class="p">.</span><span class="nx">createObjectURL</span><span class="p">(</span><span class="nx">blob</span><span class="p">);</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">cacheVideo</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span><span class="w"> </span><span class="nx">blobUrl</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="nx">processQueue</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<span class="w">        </span><span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
+<span class="w">    </span><span class="p">},</span>
+
+<span class="w">    </span><span class="nx">cacheVideo</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">originalUrl</span><span class="p">,</span><span class="w"> </span><span class="nx">blobUrl</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 存储映射关系</span>
+<span class="w">        </span><span class="nb">window</span><span class="p">.</span><span class="nx">videoCache</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">window</span><span class="p">.</span><span class="nx">videoCache</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">{};</span>
+<span class="w">        </span><span class="nb">window</span><span class="p">.</span><span class="nx">videoCache</span><span class="p">[</span><span class="nx">originalUrl</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">blobUrl</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+
+<p><strong>性能优化效果（2009-2011）：</strong></p>
+<p>| 指标 | 优化前 | 优化后 | 提升幅度 |</p>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>优化前</th>
+<th>优化后</th>
+<th>提升幅度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>页面加载时间</td>
+<td>3.5秒</td>
+<td>1.2秒</td>
+<td>65.7%</td>
+</tr>
+<tr>
+<td>并发用户数</td>
+<td>100</td>
+<td>500</td>
+<td>400%</td>
+</tr>
+<tr>
+<td>数据库QPS</td>
+<td>50</td>
+<td>300</td>
+<td>500%</td>
+</tr>
+<tr>
+<td>带宽利用率</td>
+<td>40%</td>
+<td>75%</td>
+<td>87.5%</td>
+</tr>
+<tr>
+<td>服务器成本</td>
+<td>¥500/月</td>
+<td>¥800/月</td>
+<td>60%（相对性能提升）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>架构演进时间线：</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="mf">2009.06</span><span class="w"> </span><span class="err">━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span><span class="w"> </span><span class="mf">2011.12</span>
+<span class="w">           </span><span class="err">┃</span>
+<span class="w">           </span><span class="err">┣━</span><span class="w"> </span><span class="mf">2009.06</span><span class="p">:</span><span class="w"> </span><span class="n">单机架构上线</span>
+<span class="w">           </span><span class="err">┃</span>
+<span class="w">           </span><span class="err">┣━</span><span class="w"> </span><span class="mf">2009.10</span><span class="p">:</span><span class="w"> </span><span class="n">引入Memcache缓存</span>
+<span class="w">           </span><span class="err">┃</span>
+<span class="w">           </span><span class="err">┣━</span><span class="w"> </span><span class="mf">2010.02</span><span class="p">:</span><span class="w"> </span><span class="n">数据库读写分离</span>
+<span class="w">           </span><span class="err">┃</span>
+<span class="w">           </span><span class="err">┣━</span><span class="w"> </span><span class="mf">2010.06</span><span class="p">:</span><span class="w"> </span><span class="n">静态资源CDN化</span>
+<span class="w">           </span><span class="err">┃</span>
+<span class="w">           </span><span class="err">┣━</span><span class="w"> </span><span class="mf">2010.11</span><span class="p">:</span><span class="w"> </span><span class="n">视频转码服务独立</span>
+<span class="w">           </span><span class="err">┃</span>
+<span class="w">           </span><span class="err">┣━</span><span class="w"> </span><span class="mf">2011.03</span><span class="p">:</span><span class="w"> </span><span class="n">引入消息队列</span>
+<span class="w">           </span><span class="err">┃</span>
+<span class="w">           </span><span class="err">┗━</span><span class="w"> </span><span class="mf">2011.09</span><span class="p">:</span><span class="w"> </span><span class="n">开始微服务化探索</span>
+</code></pre></div>
+
+<h2 id="14">1.4 弹幕系统的诞生与实现</h2>
+<h3 id="141">1.4.1 弹幕概念的引入</h3>
+<p>弹幕（Danmaku/Danmu），这个源自日本的概念，成为了B站最具标志性的特征。徐逸在创建Mikufans时，就将弹幕系统作为核心功能来实现。</p>
+<p><strong>弹幕的起源与发展：</strong></p>
+<ol>
+<li>
+<p><strong>日本Niconico（2006）</strong>
+   - 首创视频弹幕系统
+   - 将评论直接显示在视频画面上
+   - 创造了"共时性"观看体验</p>
+</li>
+<li>
+<p><strong>中国本土化改进</strong>
+   - AcFun（2007）引入中国
+   - B站（2009）优化体验
+   - 形成独特的弹幕文化</p>
+</li>
+</ol>
+<p><strong>B站弹幕系统的设计理念：</strong></p>
+<div class="codehilite"><pre><span></span><code>┌──────────────────────────────────────────┐
+│           弹幕系统核心理念                │
+├──────────────────────────────────────────┤
+│                                          │
+│  1. 共时性体验                           │
+│     └─ 不同时间的用户仿佛同时观看         │
+│                                          │
+│  2. 情感共鸣                             │
+│     └─ 即时分享观看感受                  │
+│                                          │
+│  3. 二次创作                             │
+│     └─ 弹幕本身成为内容的一部分           │
+│                                          │
+│  4. 社交属性                             │
+│     └─ 陌生人之间的默契互动              │
+└──────────────────────────────────────────┘
+</code></pre></div>
+
+<h3 id="142">1.4.2 技术实现方案</h3>
+<p>B站早期的弹幕系统实现，虽然简单但巧妙，为后续的技术迭代打下了良好基础。</p>
+<ol>
+<li><strong>数据存储方案</strong></li>
+</ol>
+<p>最初，B站采用XML文件存储弹幕数据：</p>
+<div class="codehilite"><pre><span></span><code><span class="cm">&lt;!-- /danmaku/1.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;i&gt;</span>
+<span class="w">    </span><span class="nt">&lt;chatserver&gt;</span>chat.bilibili.com<span class="nt">&lt;/chatserver&gt;</span>
+<span class="w">    </span><span class="nt">&lt;chatid&gt;</span>1<span class="nt">&lt;/chatid&gt;</span>
+<span class="w">    </span><span class="nt">&lt;mission&gt;</span>0<span class="nt">&lt;/mission&gt;</span>
+<span class="w">    </span><span class="nt">&lt;maxlimit&gt;</span>1000<span class="nt">&lt;/maxlimit&gt;</span>
+<span class="w">    </span><span class="nt">&lt;d</span><span class="w"> </span><span class="na">p=</span><span class="s">&quot;10.5,1,25,16777215,1312345678,0,aaabbb,12345&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span>前方高能预警！
+<span class="w">    </span><span class="nt">&lt;/d&gt;</span>
+<span class="w">    </span><span class="nt">&lt;d</span><span class="w"> </span><span class="na">p=</span><span class="s">&quot;15.2,1,25,16711680,1312345679,0,cccddd,12346&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span>233333
+<span class="w">    </span><span class="nt">&lt;/d&gt;</span>
+<span class="nt">&lt;/i&gt;</span>
+<span class="cm">&lt;!-- p参数说明：</span>
+<span class="cm">     时间,类型,字号,颜色,时间戳,弹幕池,用户hash,弹幕id</span>
+<span class="cm">--&gt;</span>
+</code></pre></div>
+
+<p>后期迁移到数据库存储（2010年）：</p>
+<div class="codehilite"><pre><span></span><code><span class="x">// 弹幕加载类</span>
+<span class="x">class DanmakuLoader {</span>
+<span class="x">    private $db;</span>
+<span class="x">    private $cache;</span>
+
+<span class="x">    public function loadByVideo($vid, $segment = 1) {</span>
+<span class="x">        // 分段加载策略，每段加载1000条</span>
+<span class="x">        $offset = ($segment - 1) * 1000;</span>
+
+<span class="x">        $sql = &quot;SELECT * FROM danmaku </span>
+<span class="x">                WHERE vid = ? </span>
+<span class="x">                ORDER BY time_point </span>
+<span class="x">                LIMIT 1000 OFFSET ?&quot;;</span>
+
+<span class="x">        $result = $this-&gt;db-&gt;query($sql, [$vid, $offset]);</span>
+<span class="x">        return $this-&gt;formatToXML($result);</span>
+<span class="x">    }</span>
+
+<span class="x">    private function formatToXML($danmakus) {</span>
+<span class="x">        $xml = &#39;</span><span class="cp">&lt;?</span><span class="nx">xml</span> <span class="nx">version</span><span class="o">=</span><span class="s2">&quot;1.0&quot;</span> <span class="nx">encoding</span><span class="o">=</span><span class="s2">&quot;UTF-8&quot;</span><span class="cp">?&gt;</span><span class="x">&lt;i&gt;&#39;;</span>
+<span class="x">        foreach ($danmakus as $d) {</span>
+<span class="x">            $p = sprintf(&quot;%f,%d,%d,%d,%d,0,%s,%d&quot;,</span>
+<span class="x">                $d[&#39;time_point&#39;],</span>
+<span class="x">                $d[&#39;type&#39;],</span>
+<span class="x">                $d[&#39;size&#39;],</span>
+<span class="x">                $d[&#39;color&#39;],</span>
+<span class="x">                $d[&#39;timestamp&#39;],</span>
+<span class="x">                $d[&#39;user_hash&#39;],</span>
+<span class="x">                $d[&#39;did&#39;]</span>
+<span class="x">            );</span>
+<span class="x">            $xml .= sprintf(&#39;&lt;d p=&quot;%s&quot;&gt;%s&lt;/d&gt;&#39;, </span>
+<span class="x">                $p, htmlspecialchars($d[&#39;content&#39;]));</span>
+<span class="x">        }</span>
+<span class="x">        $xml .= &#39;&lt;/i&gt;&#39;;</span>
+<span class="x">        return $xml;</span>
+<span class="x">    }</span>
+<span class="x">}</span>
+</code></pre></div>
+
+<ol start="2">
+<li><strong>前端渲染实现</strong></li>
+</ol>
+<p>早期使用Flash ActionScript实现弹幕渲染：</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">// ActionScript 3.0 弹幕渲染核心</span>
+<span class="kd">package</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">DanmakuEngine</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="k">var</span><span class="w"> </span><span class="nx">stage</span><span class="o">:</span><span class="nb">Stage</span><span class="o">;</span>
+<span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="k">var</span><span class="w"> </span><span class="nx">danmakuList</span><span class="o">:</span><span class="nb">Array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
+<span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="k">var</span><span class="w"> </span><span class="nx">timer</span><span class="o">:</span><span class="nb">Timer</span><span class="o">;</span>
+
+<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">DanmakuEngine</span><span class="p">(</span><span class="nx">stage</span><span class="o">:</span><span class="nb">Stage</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="nx">stage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">stage</span><span class="o">;</span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="nx">timer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nb">Timer</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span><span class="w"> </span><span class="c1">// 20fps</span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="nx">timer</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="nb">TimerEvent</span><span class="p">.</span><span class="nx">TIMER</span><span class="o">,</span><span class="w"> </span><span class="nx">render</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">addDanmaku</span><span class="p">(</span><span class="nx">text</span><span class="o">:</span><span class="nb">String</span><span class="o">,</span><span class="w"> </span><span class="nx">time</span><span class="o">:</span><span class="nb">Number</span><span class="o">,</span><span class="w"> </span>
+<span class="w">                                  </span><span class="nx">color</span><span class="o">:</span><span class="nb">uint</span><span class="o">,</span><span class="w"> </span><span class="nx">size</span><span class="o">:</span><span class="nb">int</span><span class="p">)</span><span class="o">:</span><span class="nx">void</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">var</span><span class="w"> </span><span class="nx">danmaku</span><span class="o">:</span><span class="nb">Object</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="nx">text</span><span class="o">,</span>
+<span class="w">                </span><span class="nx">time</span><span class="o">:</span><span class="w"> </span><span class="nx">time</span><span class="o">,</span>
+<span class="w">                </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="nx">color</span><span class="o">,</span>
+<span class="w">                </span><span class="nx">size</span><span class="o">:</span><span class="w"> </span><span class="nx">size</span><span class="o">,</span>
+<span class="w">                </span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="nx">stage</span><span class="p">.</span><span class="nx">stageWidth</span><span class="o">,</span>
+<span class="w">                </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">stage</span><span class="p">.</span><span class="nx">stageHeight</span>
+<span class="w">            </span><span class="p">};</span>
+<span class="w">            </span><span class="nx">danmakuList</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">danmaku</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">render</span><span class="p">(</span><span class="nx">e</span><span class="o">:</span><span class="nb">TimerEvent</span><span class="p">)</span><span class="o">:</span><span class="nx">void</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">var</span><span class="w"> </span><span class="nx">currentTime</span><span class="o">:</span><span class="nb">Number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">getVideoTime</span><span class="p">();</span>
+
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="k">each</span><span class="w"> </span><span class="p">(</span><span class="k">var</span><span class="w"> </span><span class="nx">d</span><span class="o">:</span><span class="nb">Object</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nx">danmakuList</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">time</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">currentTime</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0.1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nx">showDanmaku</span><span class="p">(</span><span class="nx">d</span><span class="p">);</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="nx">updatePositions</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">showDanmaku</span><span class="p">(</span><span class="nx">d</span><span class="o">:</span><span class="nb">Object</span><span class="p">)</span><span class="o">:</span><span class="nx">void</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">var</span><span class="w"> </span><span class="nx">tf</span><span class="o">:</span><span class="nb">TextField</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nb">TextField</span><span class="p">();</span>
+<span class="w">            </span><span class="nx">tf</span><span class="p">.</span><span class="nx">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">d</span><span class="p">.</span><span class="nx">text</span><span class="o">;</span>
+<span class="w">            </span><span class="nx">tf</span><span class="p">.</span><span class="nx">textColor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">d</span><span class="p">.</span><span class="nx">color</span><span class="o">;</span>
+<span class="w">            </span><span class="nx">tf</span><span class="p">.</span><span class="nx">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">d</span><span class="p">.</span><span class="nx">size</span><span class="o">;</span>
+<span class="w">            </span><span class="nx">tf</span><span class="p">.</span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">d</span><span class="p">.</span><span class="nx">x</span><span class="o">;</span>
+<span class="w">            </span><span class="nx">tf</span><span class="p">.</span><span class="nx">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">d</span><span class="p">.</span><span class="nx">y</span><span class="o">;</span>
+<span class="w">            </span><span class="nx">stage</span><span class="p">.</span><span class="nx">addChild</span><span class="p">(</span><span class="nx">tf</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>后期HTML5 Canvas实现（2011年开始探索）：</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">// Canvas弹幕引擎 - 优化版本</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">DanmakuEngine</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">canvas</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">canvas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">canvas</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s1">&#39;2d&#39;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">danmakus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">lastTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">lanes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">initLanes</span><span class="p">();</span><span class="w"> </span><span class="c1">// 弹道系统</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">collisionMap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">();</span><span class="w"> </span><span class="c1">// 碰撞检测</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">initLanes</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">laneHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">30</span><span class="p">;</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">laneCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nx">laneHeight</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">Array</span><span class="p">(</span><span class="nx">laneCount</span><span class="p">).</span><span class="nx">fill</span><span class="p">(</span><span class="kc">null</span><span class="p">).</span><span class="nx">map</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">({</span>
+<span class="w">            </span><span class="nx">occupied</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">releaseTime</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span>
+<span class="w">        </span><span class="p">}));</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">add</span><span class="p">(</span><span class="nx">text</span><span class="p">,</span><span class="w"> </span><span class="nx">time</span><span class="p">,</span><span class="w"> </span><span class="nx">color</span><span class="p">,</span><span class="w"> </span><span class="nx">size</span><span class="p">,</span><span class="w"> </span><span class="nx">type</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">lane</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">findAvailableLane</span><span class="p">();</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">danmakus</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+<span class="w">            </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="nx">text</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">time</span><span class="o">:</span><span class="w"> </span><span class="nx">time</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1000</span><span class="p">,</span><span class="w"> </span><span class="c1">// 转换为毫秒</span>
+<span class="w">            </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="nx">color</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">&#39;#FFFFFF&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">size</span><span class="o">:</span><span class="w"> </span><span class="nx">size</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="mf">25</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="nx">type</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="c1">// 1:滚动 2:顶部 3:底部</span>
+<span class="w">            </span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="nx">lane</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">30</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">20</span><span class="p">,</span><span class="w"> </span><span class="c1">// 基于弹道计算Y坐标</span>
+<span class="w">            </span><span class="nx">lane</span><span class="o">:</span><span class="w"> </span><span class="nx">lane</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">speed</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">(),</span>
+<span class="w">            </span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">measureText</span><span class="p">(</span><span class="nx">text</span><span class="p">,</span><span class="w"> </span><span class="nx">size</span><span class="p">),</span>
+<span class="w">            </span><span class="nx">opacity</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">show</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">shadow</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="c1">// 添加阴影效果</span>
+<span class="w">        </span><span class="p">});</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">findAvailableLane</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">now</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">();</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">lanes</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">lanes</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">occupied</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">lanes</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">releaseTime</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">now</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">lanes</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">occupied</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">lanes</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">releaseTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">now</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">3000</span><span class="p">;</span><span class="w"> </span><span class="c1">// 3秒后释放</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="nx">i</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">lanes</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">measureText</span><span class="p">(</span><span class="nx">text</span><span class="p">,</span><span class="w"> </span><span class="nx">size</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">font</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="nx">size</span><span class="si">}</span><span class="sb">px Arial`</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">measureText</span><span class="p">(</span><span class="nx">text</span><span class="p">).</span><span class="nx">width</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">update</span><span class="p">(</span><span class="nx">currentTime</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 使用双缓冲技术</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">offscreen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;canvas&#39;</span><span class="p">);</span>
+<span class="w">        </span><span class="nx">offscreen</span><span class="p">.</span><span class="nx">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span><span class="p">;</span>
+<span class="w">        </span><span class="nx">offscreen</span><span class="p">.</span><span class="nx">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span><span class="p">;</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">offCtx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">offscreen</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s1">&#39;2d&#39;</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// 批量渲染相同样式的弹幕</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">danmakuByStyle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">();</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">danmakus</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">d</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">time</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">currentTime</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">100</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="nx">d</span><span class="p">.</span><span class="nx">show</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">d</span><span class="p">.</span><span class="nx">show</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">show</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="c1">// 更新位置</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">type</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// 滚动弹幕</span>
+<span class="w">                    </span><span class="nx">d</span><span class="p">.</span><span class="nx">x</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="nx">d</span><span class="p">.</span><span class="nx">speed</span><span class="p">;</span>
+<span class="w">                </span><span class="p">}</span>
+
+<span class="w">                </span><span class="c1">// 按样式分组</span>
+<span class="w">                </span><span class="kd">const</span><span class="w"> </span><span class="nx">styleKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="nx">d</span><span class="p">.</span><span class="nx">size</span><span class="si">}</span><span class="sb">-</span><span class="si">${</span><span class="nx">d</span><span class="p">.</span><span class="nx">color</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">danmakuByStyle</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">styleKey</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nx">danmakuByStyle</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">styleKey</span><span class="p">,</span><span class="w"> </span><span class="p">[]);</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">                </span><span class="nx">danmakuByStyle</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">styleKey</span><span class="p">).</span><span class="nx">push</span><span class="p">(</span><span class="nx">d</span><span class="p">);</span>
+
+<span class="w">                </span><span class="c1">// 移除屏幕外的弹幕</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span><span class="nx">d</span><span class="p">.</span><span class="nx">width</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nx">d</span><span class="p">.</span><span class="nx">show</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">                    </span><span class="k">this</span><span class="p">.</span><span class="nx">lanes</span><span class="p">[</span><span class="nx">d</span><span class="p">.</span><span class="nx">lane</span><span class="p">].</span><span class="nx">occupied</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">});</span>
+
+<span class="w">        </span><span class="c1">// 批量绘制</span>
+<span class="w">        </span><span class="nx">danmakuByStyle</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">danmakus</span><span class="p">,</span><span class="w"> </span><span class="nx">style</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">size</span><span class="p">,</span><span class="w"> </span><span class="nx">color</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">style</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">);</span>
+<span class="w">            </span><span class="nx">offCtx</span><span class="p">.</span><span class="nx">font</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`bold </span><span class="si">${</span><span class="nx">size</span><span class="si">}</span><span class="sb">px Arial`</span><span class="p">;</span>
+<span class="w">            </span><span class="nx">offCtx</span><span class="p">.</span><span class="nx">fillStyle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">color</span><span class="p">;</span>
+
+<span class="w">            </span><span class="c1">// 添加文字阴影</span>
+<span class="w">            </span><span class="nx">offCtx</span><span class="p">.</span><span class="nx">shadowColor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;rgba(0, 0, 0, 0.5)&#39;</span><span class="p">;</span>
+<span class="w">            </span><span class="nx">offCtx</span><span class="p">.</span><span class="nx">shadowBlur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2</span><span class="p">;</span>
+<span class="w">            </span><span class="nx">offCtx</span><span class="p">.</span><span class="nx">shadowOffsetX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span>
+<span class="w">            </span><span class="nx">offCtx</span><span class="p">.</span><span class="nx">shadowOffsetY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span>
+
+<span class="w">            </span><span class="nx">danmakus</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">d</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">offCtx</span><span class="p">.</span><span class="nx">fillText</span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">text</span><span class="p">,</span><span class="w"> </span><span class="nx">d</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">d</span><span class="p">.</span><span class="nx">y</span><span class="p">);</span>
+<span class="w">            </span><span class="p">});</span>
+<span class="w">        </span><span class="p">});</span>
+
+<span class="w">        </span><span class="c1">// 将离屏画布内容复制到主画布</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">clearRect</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span><span class="p">);</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">drawImage</span><span class="p">(</span><span class="nx">offscreen</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">);</span>
+
+<span class="w">        </span><span class="nx">requestAnimationFrame</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">currentTime</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">50</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 性能监控</span>
+<span class="w">    </span><span class="nx">getPerformanceStats</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">totalDanmakus</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">danmakus</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">activeDanmakus</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">danmakus</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">d</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">d</span><span class="p">.</span><span class="nx">show</span><span class="p">).</span><span class="nx">length</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">fps</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">calculateFPS</span><span class="p">(),</span>
+<span class="w">            </span><span class="nx">memoryUsage</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">estimateMemoryUsage</span><span class="p">()</span>
+<span class="w">        </span><span class="p">};</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">calculateFPS</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">now</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">();</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">fps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1000</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="nx">now</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">lastTime</span><span class="p">);</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">lastTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">now</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nx">fps</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">estimateMemoryUsage</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 估算内存使用（KB）</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">danmakuSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">200</span><span class="p">;</span><span class="w"> </span><span class="c1">// 每个弹幕对象约200字节</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">danmakus</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">danmakuSize</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">1024</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="143">1.4.3 早期弹幕文化</h3>
+<p>B站的弹幕不仅是技术创新，更形成了独特的文化现象。</p>
+<p><strong>弹幕礼仪的形成：</strong></p>
+<p>| 弹幕用语 | 含义 | 使用场景 |</p>
+<table>
+<thead>
+<tr>
+<th>弹幕用语</th>
+<th>含义</th>
+<th>使用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>前方高能</td>
+<td>精彩内容预警</td>
+<td>战斗、高潮场景前</td>
+</tr>
+<tr>
+<td>空降指挥部</td>
+<td>时间定位</td>
+<td>指引精彩片段位置</td>
+</tr>
+<tr>
+<td>泪目</td>
+<td>感动流泪</td>
+<td>感人场景</td>
+</tr>
+<tr>
+<td>233</td>
+<td>大笑</td>
+<td>搞笑内容</td>
+</tr>
+<tr>
+<td>硬币已投</td>
+<td>支持UP主</td>
+<td>优质内容认可</td>
+</tr>
+<tr>
+<td>护体</td>
+<td>保护弹幕</td>
+<td>恐怖内容时互相鼓励</td>
+</tr>
+</tbody>
+</table>
+<p><strong>弹幕密度控制算法：</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># 弹幕密度控制伪代码</span>
+<span class="k">class</span> <span class="nc">DanmakuFilter</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_density</span> <span class="o">=</span> <span class="mi">50</span>  <span class="c1"># 屏幕最大弹幕数</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">similarity_threshold</span> <span class="o">=</span> <span class="mf">0.8</span>  <span class="c1"># 相似度阈值</span>
+
+    <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">danmakus</span><span class="p">,</span> <span class="n">current_time</span><span class="p">):</span>
+        <span class="c1"># 1. 时间窗口内的弹幕</span>
+        <span class="n">window_danmakus</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">danmakus</span> 
+                          <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">time</span> <span class="o">-</span> <span class="n">current_time</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">]</span>
+
+        <span class="c1"># 2. 相似度过滤（去重）</span>
+        <span class="n">filtered</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">window_danmakus</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_similar</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">filtered</span><span class="p">):</span>
+                <span class="n">filtered</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+
+        <span class="c1"># 3. 密度控制</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">filtered</span><span class="p">)</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_density</span><span class="p">:</span>
+            <span class="c1"># 随机采样或按质量排序</span>
+            <span class="n">filtered</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sample_by_quality</span><span class="p">(</span><span class="n">filtered</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">filtered</span>
+
+    <span class="k">def</span> <span class="nf">is_similar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">d1</span><span class="p">,</span> <span class="n">danmaku_list</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">d2</span> <span class="ow">in</span> <span class="n">danmaku_list</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">string_similarity</span><span class="p">(</span><span class="n">d1</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">d2</span><span class="o">.</span><span class="n">text</span><span class="p">)</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">similarity_threshold</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="kc">False</span>
+</code></pre></div>
+
+<p><strong>弹幕数据统计（2009-2011）：</strong></p>
+<div class="codehilite"><pre><span></span><code>┌──────────────────────────────────────────────┐
+│            弹幕系统增长数据                  │
+├──────────────────────────────────────────────┤
+│                                              │
+│  2009年：日均弹幕 1000+                      │
+│    │                                         │
+│    │     ████                               │
+│    │                                         │
+│  2010年：日均弹幕 10000+                     │
+│    │                                         │
+│    │     ████████████                       │
+│    │                                         │
+│  2011年：日均弹幕 100000+                    │
+│    │                                         │
+│    │     ████████████████████████           │
+│                                              │
+│  增长率：每年10倍                            │
+└──────────────────────────────────────────────┘
+</code></pre></div>
+
+<h2 id="_2">本章总结</h2>
+<p>2009年到2011年，是B站从个人网站成长为知名弹幕视频平台的关键三年。在这段时期内：</p>
+<ol>
+<li><strong>技术基础奠定</strong>：徐逸凭借个人技术能力，搭建了稳定可靠的视频平台基础架构</li>
+<li><strong>产品定位明确</strong>：从Mikufans到Bilibili的转变，确立了独特的品牌定位</li>
+<li><strong>社区文化形成</strong>：通过答题机制、弹幕礼仪等，培育了高质量的用户社区</li>
+<li><strong>技术创新突破</strong>：弹幕系统的本土化改进，创造了独特的观看体验</li>
+</ol>
+<p>这个阶段的B站，虽然规模不大，但已经展现出了与众不同的发展潜力。徐逸的技术理想主义和对用户体验的执着追求，为B站日后的腾飞奠定了坚实基础。</p>
+<h2 id="_3">关键时间线</h2>
+<div class="codehilite"><pre><span></span><code><span class="mf">2009.06.26</span><span class="w">  </span><span class="n">Mikufans</span><span class="mf">.</span><span class="n">cn正式上线</span>
+<span class="mf">2009.10</span><span class="w">     </span><span class="n">引入Memcache缓存系统</span>
+<span class="mf">2010.01.24</span><span class="w">  </span><span class="n">更名为Bilibili</span>
+<span class="mf">2010.05</span><span class="w">     </span><span class="n">推出会员答题系统</span>
+<span class="mf">2010.06</span><span class="w">     </span><span class="n">获得bilibili</span><span class="mf">.</span><span class="n">tv域名</span>
+<span class="mf">2011.03</span><span class="w">     </span><span class="n">用户突破10万</span>
+<span class="mf">2011.06</span><span class="w">     </span><span class="n">获得bilibili</span><span class="mf">.</span><span class="n">com域名</span>
+<span class="mf">2011.09</span><span class="w">     </span><span class="n">开始探索微服务架构</span>
+<span class="mf">2011.12</span><span class="w">     </span><span class="n">月活跃用户达到50万</span>
+</code></pre></div>
+
+<h2 id="_4">技术关键词</h2>
+<ul>
+<li><strong>LAMP架构</strong>：Linux + Apache + MySQL + PHP</li>
+<li><strong>弹幕系统</strong>：实时评论显示技术</li>
+<li><strong>Flash Video</strong>：早期视频播放技术</li>
+<li><strong>Memcache</strong>：分布式内存缓存系统</li>
+<li><strong>XML</strong>：弹幕数据存储格式</li>
+<li><strong>ActionScript</strong>：Flash编程语言</li>
+<li><strong>Canvas</strong>：HTML5图形绘制技术</li>
+<li><strong>CDN</strong>：内容分发网络</li>
+<li><strong>UGC</strong>：用户生成内容</li>
+<li><strong>MAD</strong>：动画音乐视频创作</li>
+</ul>
+<hr />
+<p><em>下一章预告：《成长期（2012-2014）》将讲述陈睿的加入如何改变B站的命运，以及技术团队如何从个人作坊走向正规军。</em></p>
+            </article>
+            
+            <nav class="page-nav"><a href="index.html" class="nav-link prev">← B站技术发展史：从弹幕网站到综合性内容平台</a><a href="chapter2.html" class="nav-link next">第2章：成长期（2012-2014） →</a></nav>
+        </main>
+    </div>
+</body>
+</html>
